@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luna Kawano</title>
+  <meta name="description" content="Luna Kawano — designer, developer, and creator from Banff, Canada." />
+  <meta name="author" content="Luna Kawano" />
+  <link rel="canonical" href="https://lunakawano.com/" />
+  <meta property="og:title" content="Luna Kawano — Designer & Developer" />
+  <meta property="og:description" content="Jack of all trades. Master of some." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://lunakawano.com/" />
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #111;
+      --white: #ffffff;
+      --mid: #888;
+      --light: #f5f5f3;
+      --border: #ccc;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: 'Courier Prime', 'Courier', 'Courier New', monospace;
+      font-size: 15px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    .container { max-width: 980px; margin: 0 auto; padding: 0 32px; }
+
+    /* ── HEADER ─────────────────────────────────── */
+    header { padding: 32px 0 20px; border-bottom: 1px solid var(--border); }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .site-logo { height: 32px; width: auto; display: block; }
+    .header-right { display: flex; align-items: center; gap: 24px; position: relative; }
+    nav { display: flex; gap: 24px; }
+    nav a { font-family: 'Courier Prime', monospace; font-size: 13px; font-weight: 400; color: var(--mid); text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 2px; transition: color 0.15s, border-color 0.15s; cursor: pointer; }
+    nav a:hover { color: var(--black); border-bottom-color: var(--black); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--black); transition: all 0.2s; }
+
+    @media (max-width: 640px) {
+      .hamburger { display: flex; }
+      nav { display: none; position: absolute; top: calc(100% + 8px); right: 0; background: var(--white); border: 1px solid var(--black); flex-direction: column; gap: 0; min-width: 160px; z-index: 50; }
+      nav.open { display: flex; }
+      nav a { padding: 12px 20px; border-bottom: 1px solid var(--border); color: var(--black); }
+      nav a:last-child { border-bottom: none; }
+    }
+
+    /* ── VIEW SYSTEM ────────────────────────────── */
+    .page-section { display: none; padding: 48px 0 80px; }
+    .page-section.active { display: block; }
+    #homeContent { display: block; }
+    #homeContent.hidden { display: none; }
+
+    .view-header { display: flex; align-items: center; gap: 16px; margin-bottom: 40px; }
+    .back-btn { font-family: 'Courier Prime', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; background: none; border: none; color: var(--mid); cursor: pointer; padding: 0; transition: color 0.15s; }
+    .back-btn:hover { color: var(--black); }
+    .view-title { font-size: 13px; color: var(--mid); }
+
+    /* ── SECTIONS ───────────────────────────────── */
+    section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+    section:last-child { border-bottom: none; }
+
+    .section-label { font-size: 20px; font-weight: 400; color: var(--black); letter-spacing: -0.01em; margin-bottom: 32px; }
+
+    /* ── HERO ───────────────────────────────────── */
+    #home { padding: 56px 0 72px; border-bottom: 1px solid var(--border); border-top: none; }
+
+    .hero-layout { display: flex; align-items: stretch; gap: 36px; }
+
+    /* Photo: fixed width, stretches to match full text column height */
+    .hero-photo-wrap { flex-shrink: 0; width: 180px; }
+    .hero-photo {
+      width: 180px;
+      height: 100%;
+      min-height: 200px;
+      border-radius: 10px;
+      object-fit: cover;
+      object-position: center top;
+      border: 1px solid var(--border);
+      display: block;
+    }
+
+    .hero-text { display: flex; flex-direction: column; flex: 1; }
+    .hero-text h1 { font-size: 28px; font-weight: 400; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 4px; }
+    .hero-text .tagline { font-size: 14px; color: var(--mid); font-style: italic; margin-bottom: 20px; }
+    .hero-text p { font-size: 14px; line-height: 1.8; color: #333; margin-bottom: 0; flex-grow: 1; }
+    .hero-text p em { font-style: italic; color: var(--black); }
+    .hero-contact { display: flex; gap: 20px; flex-wrap: wrap; font-size: 13px; margin-top: 20px; }
+    .hero-contact a { color: var(--mid); text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 1px; transition: color 0.15s, border-color 0.15s; }
+    .hero-contact a:hover { color: var(--black); border-bottom-color: var(--black); }
+
+    @media (max-width: 560px) {
+      .hero-layout { flex-direction: column; gap: 20px; }
+      .hero-photo-wrap { width: 100%; }
+      .hero-photo { width: 100%; height: 240px; min-height: unset; border-radius: 8px; }
+      .hero-text h1 { font-size: 24px; }
+    }
+
+    /* ── HIGHLIGHTS ─────────────────────────────── */
+    .highlight-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+    @media (max-width: 640px) { .highlight-grid { grid-template-columns: 1fr; } }
+
+    .highlight-item {}
+
+    /* Square image at top of each highlight card */
+    .highlight-img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 4px;
+      display: block;
+      background: var(--light); /* placeholder colour if image missing */
+      border: 1px solid var(--border);
+      margin-bottom: 14px;
+    }
+    /* Placeholder shown when no image is set */
+    .highlight-img-placeholder {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+
+    .highlight-item .label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--mid); margin-bottom: 6px; }
+    .highlight-item .challenge { font-size: 13px; font-weight: 700; line-height: 1.4; margin-bottom: 8px; }
+    .highlight-item .solution { font-size: 13px; color: #444; line-height: 1.6; }
+    .highlight-item .solution a { color: var(--black); text-decoration: none; border-bottom: 1px solid var(--border); transition: border-color 0.15s; }
+    .highlight-item .solution a:hover { border-bottom-color: var(--black); }
+
+    /* ── WORK GRID ──────────────────────────────── */
+    .work-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--border); border-left: 1px solid var(--border); }
+    .work-item { border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 16px 20px; cursor: pointer; transition: background 0.12s; text-decoration: none; display: flex; align-items: center; justify-content: space-between; gap: 8px; background: var(--white); }
+    .work-item:hover { background: var(--light); }
+    .work-item .work-name { font-size: 13px; font-weight: 400; color: var(--mid); }
+    .work-item .work-arrow { font-size: 13px; color: var(--border); flex-shrink: 0; }
+    .work-item:hover .work-name { color: var(--black); }
+    .work-item:hover .work-arrow { color: var(--mid); }
+    @media (max-width: 520px) { .work-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    /* ── EXPERIENCE ─────────────────────────────── */
+    .exp-item { display: grid; grid-template-columns: 80px 1fr; gap: 0 24px; padding: 20px 0; border-bottom: 1px solid var(--border); }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-years { font-size: 12px; color: var(--mid); padding-top: 2px; }
+    .exp-role { font-size: 14px; font-weight: 700; line-height: 1.3; margin-bottom: 2px; }
+    .exp-org { font-size: 13px; color: var(--mid); margin-bottom: 8px; }
+    .exp-org em { font-style: normal; color: #555; }
+    .exp-desc { font-size: 13px; color: #444; line-height: 1.7; }
+    .exp-desc p { margin-bottom: 4px; }
+    @media (max-width: 480px) { .exp-item { grid-template-columns: 1fr; gap: 4px; } }
+
+    /* ── WORK PAGES ─────────────────────────────── */
+    .work-page-content { font-size: 14px; line-height: 1.8; color: #333; }
+    .work-page-content h2 { font-size: 20px; font-weight: 400; margin: 40px 0 12px; color: var(--black); }
+    .work-page-content h2:first-child { margin-top: 0; }
+    .work-page-content p { margin-bottom: 16px; }
+    .work-page-content a { color: var(--black); text-decoration: none; border-bottom: 1px solid var(--border); transition: border-color 0.15s; }
+    .work-page-content a:hover { border-bottom-color: var(--black); }
+    .work-page-content ul { list-style: none; padding: 0; margin-bottom: 16px; }
+    .work-page-content ul li { padding-left: 16px; position: relative; margin-bottom: 6px; font-size: 13px; }
+    .work-page-content ul li::before { content: '—'; position: absolute; left: 0; color: var(--mid); }
+    .work-page-content .ext-link { display: inline-block; margin: 4px 0 12px; font-size: 13px; padding: 8px 16px; border: 1px solid var(--border); color: var(--black); text-decoration: none; border-bottom: 1px solid var(--border); transition: background 0.12s, border-color 0.12s; }
+    .work-page-content .ext-link:hover { background: var(--light); border-color: var(--black); }
+
+    .stat-row { display: flex; gap: 32px; flex-wrap: wrap; margin: 20px 0; padding: 20px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .stat-num { font-size: 22px; font-weight: 700; display: block; }
+    .stat-label { font-size: 11px; color: var(--mid); text-transform: uppercase; letter-spacing: 0.1em; }
+    .role-tag { display: inline-block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; border: 1px solid var(--border); padding: 3px 10px; margin-right: 8px; margin-bottom: 8px; color: var(--mid); }
+
+    /* ── MASONRY GALLERY ────────────────────────── */
+    /*
+      CSS-columns masonry: images naturally flow at their real aspect ratio.
+      To add images: put <img> tags inside .gallery. They'll wrap automatically.
+      To add more columns on large screens, increase column-count.
+    */
+    .gallery {
+      columns: 3;
+      column-gap: 10px;
+      margin-top: 8px;
+    }
+    .gallery img {
+      width: 100%;
+      display: block;
+      margin-bottom: 10px;
+      border-radius: 3px;
+      break-inside: avoid;
+      border: 1px solid var(--border);
+    }
+    @media (max-width: 640px) { .gallery { columns: 2; } }
+    @media (max-width: 400px) { .gallery { columns: 1; } }
+
+    /* Single wide image used in some sections */
+    .work-img {
+      width: 100%;
+      display: block;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      margin: 16px 0;
+    }
+    /* Side-by-side pair */
+    .img-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 16px 0; }
+    .img-pair img { width: 100%; display: block; border-radius: 4px; border: 1px solid var(--border); }
+    @media (max-width: 500px) { .img-pair { grid-template-columns: 1fr; } }
+
+    /* ── FOOTER ─────────────────────────────────── */
+    footer { padding: 32px 0; border-top: 1px solid var(--border); font-size: 12px; color: var(--mid); display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    footer a { color: var(--mid); text-decoration: none; border-bottom: 1px solid transparent; transition: color 0.15s, border-color 0.15s; }
+    footer a:hover { color: var(--black); border-bottom-color: var(--black); }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- HEADER                                       -->
+<!-- ════════════════════════════════════════════ -->
+<header>
+  <div class="container">
+    <div class="header-inner">
+      <a href="#" onclick="showHome(); return false;" aria-label="Luna Kawano home">
+        <img class="site-logo" src="images/header-logo.svg" alt="Luna Kawano"
+          onerror="this.outerHTML='<span style=\'font-family:Courier Prime,monospace;font-size:15px;font-weight:400\'>Luna Kawano</span>'" />
+      </a>
+      <div class="header-right">
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="mainNav">
+          <a href="#" onclick="showHome(); closeMenu(); return false;">Home</a>
+          <a href="#" onclick="scrollToWork(); closeMenu(); return false;">Work</a>
+          <a href="#" onclick="scrollToExp(); closeMenu(); return false;">Experience</a>
+          <a href="mailto:lunakawano@gmail.com" onclick="closeMenu();">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+<div id="homeContent">
+
+  <!-- ══ HERO ══════════════════════════════════ -->
+  <section id="home">
+    <div class="hero-layout">
+      <div class="hero-photo-wrap">
+        <img class="hero-photo" src="images/luna.png" alt="Luna Kawano" />
+      </div>
+      <div class="hero-text">
+        <div>
+          <h1>Luna Kawano</h1>
+          <p class="tagline">Jack of all trades. Master of some.</p>
+        </div>
+        <p>I'm a first-generation Japanese-Canadian designer, developer, and creator based in Banff, Canada. I care deeply about <em>human-centred design</em> — whether that means building a website, launching a community program, or crafting a story worth telling. My background spans design, computing, and business, and I thrive at the intersection of creativity and collaboration.</p>
+        <div class="hero-contact">
+          <a href="mailto:lunakawano@gmail.com">lunakawano@gmail.com</a>
+          <a href="https://instagram.com/tuna_kawano" target="_blank">@tuna_kawano</a>
+          <a href="https://tunakawano.com" target="_blank">tunakawano.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ HIGHLIGHTS ════════════════════════════ -->
+  <section id="highlights">
+    <div class="section-label">My Highlights</div>
+    <div class="highlight-grid">
+
+      <div class="highlight-item">
+        <!-- Replace src with your image, or remove the img tag to show the placeholder -->
+        <img class="highlight-img" src="images/highlights/reusable.jpg" alt="Banff Isn't Disposable"
+          onerror="this.outerHTML='<div class=\'highlight-img-placeholder\'></div>'" />
+        <div class="label">Challenge</div>
+        <div class="challenge">How might we reduce single-use waste from Banff National Park?</div>
+        <div class="solution">Implement a <a href="#" onclick="showPage('reusable'); return false;">reusable container program</a> with the Town of Banff, local businesses, and community volunteers.</div>
+      </div>
+
+      <div class="highlight-item">
+        <img class="highlight-img" src="images/highlights/dementia.jpg" alt="Designing for Dementia"
+          onerror="this.outerHTML='<div class=\'highlight-img-placeholder\'></div>'" />
+        <div class="label">Challenge</div>
+        <div class="challenge">How might we help designers create inclusive products for people living with dementia?</div>
+        <div class="solution">Create an <a href="#" onclick="showPage('dementia'); return false;">accessible resource</a> in collaboration with people living with dementia.</div>
+      </div>
+
+      <div class="highlight-item">
+        <img class="highlight-img" src="images/highlights/vein-to-vein.jpg" alt="Vein to Vein"
+          onerror="this.outerHTML='<div class=\'highlight-img-placeholder\'></div>'" />
+        <div class="label">Challenge</div>
+        <div class="challenge">How might we demystify the blood donation process?</div>
+        <div class="solution">Ask 100 people to share their thoughts and experiences. <a href="https://www.youtube.com/watch?v=_7k3xKxv3Vw" target="_blank">Watch on YouTube ↗</a></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ WORK ══════════════════════════════════ -->
+  <section id="work">
+    <div class="section-label">My Work</div>
+    <div class="work-grid">
+      <a class="work-item" href="#" onclick="showPage('museum'); return false;"><span class="work-name">Museum Design</span><span class="work-arrow">→</span></a>
+      <a class="work-item" href="#" onclick="showPage('marketing'); return false;"><span class="work-name">Marketing</span><span class="work-arrow">→</span></a>
+      <a class="work-item" href="#" onclick="showPage('sound'); return false;"><span class="work-name">Sound Design</span><span class="work-arrow">→</span></a>
+      <a class="work-item" href="#" onclick="showPage('web'); return false;"><span class="work-name">Web Design</span><span class="work-arrow">→</span></a>
+      <a class="work-item" href="#" onclick="showPage('graphic'); return false;"><span class="work-name">Graphic Design</span><span class="work-arrow">→</span></a>
+      <a class="work-item" href="#" onclick="showPage('video'); return false;"><span class="work-name">Video</span><span class="work-arrow">→</span></a>
+      <a class="work-item" href="#" onclick="showPage('photography'); return false;"><span class="work-name">Photography</span><span class="work-arrow">→</span></a>
+      <a class="work-item" href="#" onclick="showPage('art'); return false;"><span class="work-name">Traditional Art</span><span class="work-arrow">→</span></a>
+      <a class="work-item" href="https://tunakawano.com" target="_blank"><span class="work-name">Tuna Kawano ↗</span><span class="work-arrow" style="font-size:11px">art shop</span></a>
+    </div>
+  </section>
+
+  <!-- ══ EXPERIENCE ════════════════════════════ -->
+  <section id="experience">
+    <div class="section-label">My Work Experience</div>
+
+    <div class="exp-item">
+      <div class="exp-years">2023–2025</div>
+      <div>
+        <div class="exp-role">Admin / Distribution</div>
+        <div class="exp-org">Wildly Supply Co. <em>|| Banff, AB</em></div>
+        <div class="exp-desc"><p>Adapted to the evolving needs of a growing local art shop across administration, packaging, inventory, and online shop maintenance — supporting both online and wholesale distribution. Stepped into new roles as needed, from improving internal systems to onboarding staff and building out an email marketing flow.</p></div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-years">2022</div>
+      <div>
+        <div class="exp-role">Barista</div>
+        <div class="exp-org">Seven Shores <em>|| Waterloo, ON</em></div>
+        <div class="exp-desc"><p>Delivered exceptional customer service through a genuine passion for coffee and people.</p></div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-years">2021–2022</div>
+      <div>
+        <div class="exp-role">Founder / Advisor</div>
+        <div class="exp-org">Banff Isn't Disposable <em>|| Banff, AB (Remote)</em></div>
+        <div class="exp-desc"><p>Took a personal capstone project all the way to community-wide implementation. Collaborated with the Town of Banff, 20+ volunteers, and 8 local businesses to launch a pilot reusable container program — diverting 500+ containers from the waste stream and contributing to a new single-use bylaw in Banff National Park.</p></div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-years">2021</div>
+      <div>
+        <div class="exp-role">Designer / Knowledge-Integrator</div>
+        <div class="exp-org">Research Institute for Aging <em>|| Waterloo, ON (Remote)</em></div>
+        <div class="exp-desc"><p>Created a resource to help designers and developers build inclusive products for people living with Alzheimer's and dementia, developed in direct collaboration with end-users.</p></div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-years">2021</div>
+      <div>
+        <div class="exp-role">Barista</div>
+        <div class="exp-org">Good Earth Coffee House <em>|| Banff, AB</em></div>
+        <div class="exp-desc"><p>Brought nearly five years of barista experience to a new team from day one.</p></div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-years">2020–2021</div>
+      <div>
+        <div class="exp-role">Web Designer</div>
+        <div class="exp-org">Bow Valley Naturalists <em>|| Banff, AB (Remote)</em></div>
+        <div class="exp-desc"><p>Revamped an outdated website using HTML, CSS, and WordPress through user testing and continuous stakeholder feedback to create a significantly more usable experience.</p></div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-years">2018–2019</div>
+      <div>
+        <div class="exp-role">Marketing Manager</div>
+        <div class="exp-org">Marlena Books <em>|| Kitchener, ON</em></div>
+        <div class="exp-desc"><p>Produced a video for AGEWELL's National Impact Challenge, winning a $75,000 grand prize. Grew social media following by nearly 500% through targeted digital marketing and stakeholder outreach.</p></div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-years">2018</div>
+      <div>
+        <div class="exp-role">iOS Developer</div>
+        <div class="exp-org">Marlena Books <em>|| Kitchener, ON</em></div>
+        <div class="exp-desc"><p>Learned Swift from scratch and contributed to a dementia-friendly iOS app.</p></div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-years">2017</div>
+      <div>
+        <div class="exp-role">Camp Counsellor</div>
+        <div class="exp-org">Town of Banff <em>|| Banff, AB</em></div>
+        <div class="exp-desc"><p>Led activities for children with adaptability and quick situational thinking.</p></div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-years">2013–2017</div>
+      <div>
+        <div class="exp-role">Barista</div>
+        <div class="exp-org">Evelyn's Coffee Bar <em>|| Banff, AB</em></div>
+        <div class="exp-desc"><p>Built strong communication and customer service skills over four years, serving guests from all over the world.</p></div>
+      </div>
+    </div>
+
+  </section>
+
+</div><!-- /#homeContent -->
+
+<!-- ════════════════════════════════════════════ -->
+<!-- WORK PAGES                                   -->
+<!-- ════════════════════════════════════════════ -->
+
+<!-- MUSEUM DESIGN -->
+<div id="page-museum" class="page-section">
+  <div class="view-header"><button class="back-btn" onclick="showHome()">← Back</button><span class="view-title">Work / Museum Design</span></div>
+  <div class="work-page-content">
+    <h2>Museum Design</h2>
+    <p>Designing a museum exhibit was our third-year capstone project in Knowledge Integration. As the <strong>activity design lead</strong>, I was responsible for ensuring interactivity and engagement were at the centre of our exhibit design.</p>
+
+    <!-- Add images to images/museum/ and list them below -->
+    <div class="gallery">
+      <img src="images/museum/cover.jpg" alt="Vein to Vein exhibit" onerror="this.style.display='none'" />
+      <img src="images/museum/storyboard.jpg" alt="Storyboard" onerror="this.style.display='none'" />
+      <img src="images/museum/exhibit.jpg" alt="Exhibit photo" onerror="this.style.display='none'" />
+      <img src="images/museum/interactive.jpg" alt="Interactive element" onerror="this.style.display='none'" />
+    </div>
+
+    <div class="stat-row">
+      <div><span class="stat-num">100</span><span class="stat-label">people interviewed</span></div>
+      <div><span class="stat-num">2 days</span><span class="stat-label">to recruit them</span></div>
+      <div><span class="stat-num">3rd yr</span><span class="stat-label">capstone project</span></div>
+    </div>
+
+    <p><em>Vein to Vein</em> — everyone has a place in the blood donation community, whether you donate or not. Our exhibit aimed to inform, include, and spark conversation.</p>
+
+    <h2>My Role as Activity-Design Lead</h2>
+    <div class="role-tag">Outreach</div><div class="role-tag">Video Production</div><div class="role-tag">Interactive Elements</div>
+    <ul>
+      <li>Aligned project goals with Canadian Blood Services and UW campus groups</li>
+      <li>Spearheaded marketing that recruited 100 participants in 2 days</li>
+      <li>Curated interactive elements: blood-type puzzles, an Arduino-powered circulatory system model, and a global blood collection quiz</li>
+    </ul>
+
+    <h2>Videos</h2>
+    <a class="ext-link" href="https://www.youtube.com/watch?v=_7k3xKxv3Vw" target="_blank">▶ We Asked 100 People If They Would Donate Blood ↗</a><br/>
+    <a class="ext-link" href="https://www.youtube.com/watch?v=t70uAZCNXME" target="_blank">▶ 1st-Person: What It's Like to Donate Blood ↗</a><br/>
+    <a class="ext-link" href="https://youtu.be/Hloe7ltWY80" target="_blank">▶ UW Faculty of Environment Feature ↗</a>
+  </div>
+</div>
+
+<!-- MARKETING -->
+<div id="page-marketing" class="page-section">
+  <div class="view-header"><button class="back-btn" onclick="showHome()">← Back</button><span class="view-title">Work / Marketing</span></div>
+  <div class="work-page-content">
+    <h2>Marketing</h2>
+    <p>From winning a $75,000 national competition to growing a social media account by 500%, here are some marketing projects I've worked on.</p>
+
+    <div class="gallery">
+      <img src="images/marketing/campaign.jpg" alt="Campaign" onerror="this.style.display='none'" />
+      <img src="images/marketing/social.jpg" alt="Social post" onerror="this.style.display='none'" />
+      <img src="images/marketing/results.jpg" alt="Results" onerror="this.style.display='none'" />
+    </div>
+
+    <div class="stat-row">
+      <div><span class="stat-num">$75K</span><span class="stat-label">prize won</span></div>
+      <div><span class="stat-num">500%</span><span class="stat-label">follower growth</span></div>
+      <div><span class="stat-num">120</span><span class="stat-label">link clicks on hiring post</span></div>
+    </div>
+
+    <h2>#MoreThanDementia Campaign</h2>
+    <p>Shared numerous stories of those living with or caring for people with Alzheimer's and dementia.</p>
+    <a class="ext-link" href="https://youtu.be/ORHcafA0w7I" target="_blank">▶ Watch on YouTube ↗</a>
+
+    <h2>AGEWELL National Impact Challenge</h2>
+    <p>A promotional video I created won $75,000 for Marlena Books, a dementia-friendly digital reading platform, at AGE-WELL's National Impact Challenge.</p>
+    <a class="ext-link" href="https://www.newswire.ca/news-releases/dementia-friendly-digital-reading-platform-wins-canada-wide-competition-697913321.html" target="_blank">Read the article ↗</a>
+
+    <h2>UW Entrepreneurship Society</h2>
+    <p>As marketing-design lead, I built a network of 10+ tech and entrepreneurship clubs and a joint Discord server of 600+ UW students and alumni.</p>
+    <ul>
+      <li>Hiring post: 120 link clicks vs usual ~50</li>
+      <li>Book club post impressions far exceeded the usual ~300</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SOUND DESIGN -->
+<div id="page-sound" class="page-section">
+  <div class="view-header"><button class="back-btn" onclick="showHome()">← Back</button><span class="view-title">Work / Sound Design</span></div>
+  <div class="work-page-content">
+    <h2>Sound Design</h2>
+    <p>A pair of podcasts made for a digital communication course — both grounded in research and scripting, so hopefully they show writing ability alongside sound design.</p>
+
+    <h2>shiiiin — the sound of silence</h2>
+    <p>A deep dive into the surprisingly complex world of onomatopoeias: how they differ across languages and why it matters.</p>
+    <a class="ext-link" href="https://soundcloud.com/luna-kawano/shiiiinthe-sound-of-silence" target="_blank">▶ Listen on SoundCloud ↗</a>
+
+    <h2>the door</h2>
+    <p>A fictional podcast with ample use of sound design — an assignment that turned into a fun creative exercise.</p>
+    <a class="ext-link" href="https://soundcloud.com/luna-kawano/the-door" target="_blank">▶ Listen on SoundCloud ↗</a>
+  </div>
+</div>
+
+<!-- WEB DESIGN -->
+<div id="page-web" class="page-section">
+  <div class="view-header"><button class="back-btn" onclick="showHome()">← Back</button><span class="view-title">Work / Web Design</span></div>
+  <div class="work-page-content">
+    <h2>Web Design</h2>
+
+    <h2>Bow Valley Naturalists</h2>
+    <div class="role-tag">HTML / CSS</div><div class="role-tag">WordPress</div><div class="role-tag">User Testing</div>
+    <p>Revamped an outdated website for a non-profit that has been advocating for Bow Valley ecosystems for over 50 years. Identified core issues through user testing, then redesigned for clarity and usability.</p>
+    <!-- Before/after pair — add your screenshots to images/web/ -->
+    <div class="img-pair">
+      <img src="images/web/bvn-before.jpg" alt="BVN before" onerror="this.style.display='none'" />
+      <img src="images/web/bvn-after.jpg" alt="BVN after" onerror="this.style.display='none'" />
+    </div>
+    <a class="ext-link" href="http://bowvalleynaturalists.org/" target="_blank">Visit the site ↗</a>
+
+    <h2>Tuna Kawano</h2>
+    <p>My personal art shop — a single-file HTML/CSS/JS application with a full cart system, product gallery, and Stripe-ready checkout.</p>
+    <img class="work-img" src="images/web/tunakawano.jpg" alt="Tuna Kawano site" onerror="this.style.display='none'" />
+    <a class="ext-link" href="https://tunakawano.com" target="_blank">Visit tunakawano.com ↗</a>
+  </div>
+</div>
+
+<!-- GRAPHIC DESIGN -->
+<div id="page-graphic" class="page-section">
+  <div class="view-header"><button class="back-btn" onclick="showHome()">← Back</button><span class="view-title">Work / Graphic Design</span></div>
+  <div class="work-page-content">
+    <h2>Graphic Design</h2>
+    <p>A selection of graphic design work across branding, print, and digital.</p>
+    <!-- Add any number of images to images/graphic/ — the masonry gallery handles any orientation -->
+    <div class="gallery">
+      <img src="images/graphic/01.jpg" alt="" onerror="this.style.display='none'" />
+      <img src="images/graphic/02.jpg" alt="" onerror="this.style.display='none'" />
+      <img src="images/graphic/03.jpg" alt="" onerror="this.style.display='none'" />
+      <img src="images/graphic/04.jpg" alt="" onerror="this.style.display='none'" />
+      <img src="images/graphic/05.jpg" alt="" onerror="this.style.display='none'" />
+      <img src="images/graphic/06.jpg" alt="" onerror="this.style.display='none'" />
+    </div>
+  </div>
+</div>
+
+<!-- VIDEO -->
+<div id="page-video" class="page-section">
+  <div class="view-header"><button class="back-btn" onclick="showHome()">← Back</button><span class="view-title">Work / Video</span></div>
+  <div class="work-page-content">
+    <h2>Video</h2>
+    <p>From quickly-made personal projects to a video that won $75,000 — each one a learning experience.</p>
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=_7k3xKxv3Vw" target="_blank">We Asked 100 People If They Would Donate Blood ↗</a></li>
+      <li><a href="https://www.youtube.com/watch?v=lAKbc0fUJFE" target="_blank">Dementia-Friendly Reading App — AGEWELL Challenge Entry ↗</a></li>
+      <li><a href="https://youtu.be/ORHcafA0w7I" target="_blank">#MoreThanDementia — Stories of Those Living with Dementia ↗</a></li>
+      <li><a href="https://www.youtube.com/watch?v=Mk7wAVAODhc" target="_blank">Vein to Vein — Museum Exhibit Walkthrough ↗</a></li>
+      <li><a href="https://youtu.be/70_I40uIE_o" target="_blank">What It Feels Like to Donate Blood (1st Person) ↗</a></li>
+      <li><a href="https://www.youtube.com/watch?v=AyRnczCw-V0" target="_blank">Blood Donation: 1st Person Experience ↗</a></li>
+      <li><a href="https://youtu.be/abiQQCfw7Hg" target="_blank">Short Film ↗</a></li>
+      <li><a href="https://youtu.be/2OAe47lSPb8" target="_blank">Short Film II ↗</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- PHOTOGRAPHY -->
+<div id="page-photography" class="page-section">
+  <div class="view-header"><button class="back-btn" onclick="showHome()">← Back</button><span class="view-title">Work / Photography</span></div>
+  <div class="work-page-content">
+    <h2>Photography</h2>
+    <!-- Add any number of images to images/photography/ — any orientation works -->
+    <div class="gallery">
+      <img src="images/photography/01.jpg" alt="" onerror="this.style.display='none'" />
+      <img src="images/photography/02.jpg" alt="" onerror="this.style.display='none'" />
+      <img src="images/photography/03.jpg" alt="" onerror="this.style.display='none'" />
+      <img src="images/photography/04.jpg" alt="" onerror="this.style.display='none'" />
+      <img src="images/photography/05.jpg" alt="" onerror="this.style.display='none'" />
+      <img src="images/photography/06.jpg" alt="" onerror="this.style.display='none'" />
+      <img src="images/photography/07.jpg" alt="" onerror="this.style.display='none'" />
+      <img src="images/photography/08.jpg" alt="" onerror="this.style.display='none'" />
+      <img src="images/photography/09.jpg" alt="" onerror="this.style.display='none'" />
+    </div>
+  </div>
+</div>
+
+<!-- TRADITIONAL ART -->
+<div id="page-art" class="page-section">
+  <div class="view-header"><button class="back-btn" onclick="showHome()">← Back</button><span class="view-title">Work / Traditional Art</span></div>
+  <div class="work-page-content">
+    <h2>Traditional Art</h2>
+    <p>Visit <a href="https://tunakawano.com" target="_blank">tunakawano.com ↗</a> for prints and original work.</p>
+    <!-- Add any number of images to images/art/ -->
+    <div class="gallery">
+      <img src="images/art/01.jpg" alt="" onerror="this.style.display='none'" />
+      <img src="images/art/02.jpg" alt="" onerror="this.style.display='none'" />
+      <img src="images/art/03.jpg" alt="" onerror="this.style.display='none'" />
+      <img src="images/art/04.jpg" alt="" onerror="this.style.display='none'" />
+      <img src="images/art/05.jpg" alt="" onerror="this.style.display='none'" />
+      <img src="images/art/06.jpg" alt="" onerror="this.style.display='none'" />
+    </div>
+  </div>
+</div>
+
+<!-- REUSABLE CONTAINERS -->
+<div id="page-reusable" class="page-section">
+  <div class="view-header"><button class="back-btn" onclick="showHome()">← Back</button><span class="view-title">Highlights / Banff Isn't Disposable</span></div>
+  <div class="work-page-content">
+    <h2>Banff Isn't Disposable</h2>
+    <p>A personal capstone project that grew into a community-wide initiative to reduce single-use waste in Banff National Park.</p>
+    <div class="gallery">
+      <img src="images/reusable/01.jpg" alt="" onerror="this.style.display='none'" />
+      <img src="images/reusable/02.jpg" alt="" onerror="this.style.display='none'" />
+      <img src="images/reusable/03.jpg" alt="" onerror="this.style.display='none'" />
+    </div>
+    <div class="stat-row">
+      <div><span class="stat-num">500+</span><span class="stat-label">containers diverted</span></div>
+      <div><span class="stat-num">8</span><span class="stat-label">local businesses</span></div>
+      <div><span class="stat-num">20+</span><span class="stat-label">volunteers</span></div>
+    </div>
+    <p>Collaborated with the Town of Banff, 20+ volunteers, and 8 local businesses to implement and launch the pilot. Over 500 containers were diverted from the waste stream and a new single-use bylaw was approved in Banff National Park.</p>
+  </div>
+</div>
+
+<!-- DEMENTIA RESOURCE -->
+<div id="page-dementia" class="page-section">
+  <div class="view-header"><button class="back-btn" onclick="showHome()">← Back</button><span class="view-title">Highlights / Research Institute for Aging</span></div>
+  <div class="work-page-content">
+    <h2>Designing to Reflect Dementia & Personhood</h2>
+    <p>A resource to help designers and developers build inclusive products for people living with Alzheimer's and dementia — developed in direct collaboration with end-users through the Research Institute for Aging.</p>
+    <div class="gallery">
+      <img src="images/dementia/01.jpg" alt="" onerror="this.style.display='none'" />
+      <img src="images/dementia/02.jpg" alt="" onerror="this.style.display='none'" />
+    </div>
+    <ul>
+      <li>Consolidated complex research findings into an accessible, visual format</li>
+      <li>Engaged with clients and end-users throughout the design process</li>
+      <li>Translated nuanced, sensitive subject matter into practical design guidance</li>
+    </ul>
+  </div>
+</div>
+
+</div><!-- /.container -->
+
+<div class="container">
+  <footer>
+    <span>© Luna Kawano 2025</span>
+    <span>
+      <a href="mailto:lunakawano@gmail.com">lunakawano@gmail.com</a>
+      &nbsp;·&nbsp;
+      <a href="https://tunakawano.com" target="_blank">tunakawano.com</a>
+    </span>
+  </footer>
+</div>
+
+<script>
+  function toggleMenu() { document.getElementById('mainNav').classList.toggle('open'); }
+  function closeMenu()  { document.getElementById('mainNav').classList.remove('open'); }
+
+  const pages = ['museum','marketing','sound','web','graphic','video','photography','art','reusable','dementia'];
+
+  function showHome() {
+    document.getElementById('homeContent').classList.remove('hidden');
+    pages.forEach(id => document.getElementById('page-' + id).classList.remove('active'));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function showPage(id) {
+    document.getElementById('homeContent').classList.add('hidden');
+    pages.forEach(pid => document.getElementById('page-' + pid).classList.remove('active'));
+    const el = document.getElementById('page-' + id);
+    if (el) el.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+
+  function scrollToWork() {
+    if (document.getElementById('homeContent').classList.contains('hidden')) {
+      showHome();
+      setTimeout(() => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' }), 80);
+    } else {
+      document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  function scrollToExp() {
+    if (document.getElementById('homeContent').classList.contains('hidden')) {
+      showHome();
+      setTimeout(() => document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' }), 80);
+    } else {
+      document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+</script>
+</body>
+</html>
