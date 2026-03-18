@@ -11,6 +11,8 @@
   <meta property="og:description" content="Jack of all trades. Master of some." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://lunakawano.com/" />
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+  <link rel="apple-touch-icon" href="images/favicon.svg" />
   <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
 
   <style>
@@ -35,10 +37,10 @@
       min-height: 100vh;
     }
 
-    .container { max-width: 980px; margin: 0 auto; padding: 0 32px; }
+    .container { max-width: 860px; margin: 0 auto; padding: 0 32px; }
 
     /* ── HEADER ─────────────────────────────────── */
-    header { padding: 32px 0 20px; border-bottom: 1px solid var(--border); }
+    header { padding: 32px 0 20px; }
     .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
     .site-logo { height: 32px; width: auto; display: block; }
     .header-right { display: flex; align-items: center; gap: 24px; position: relative; }
@@ -87,14 +89,13 @@
       border-radius: 10px;
       object-fit: cover;
       object-position: center top;
-      border: 1px solid var(--border);
       display: block;
     }
 
     .hero-text { display: flex; flex-direction: column; flex: 1; }
     .hero-text h1 { font-size: 28px; font-weight: 400; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 4px; }
     .hero-text .tagline { font-size: 14px; color: var(--mid); font-style: italic; margin-bottom: 20px; }
-    .hero-text p { font-size: 14px; line-height: 1.8; color: #333; margin-bottom: 0; flex-grow: 1; }
+    .hero-text p { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 0; flex-grow: 1; }
     .hero-text p em { font-style: italic; color: var(--black); }
     .hero-contact { display: flex; gap: 20px; flex-wrap: wrap; font-size: 13px; margin-top: 20px; }
     .hero-contact a { color: var(--mid); text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 1px; transition: color 0.15s, border-color 0.15s; }
@@ -120,16 +121,13 @@
       object-fit: cover;
       border-radius: 4px;
       display: block;
-      background: var(--light); /* placeholder colour if image missing */
-      border: 1px solid var(--border);
+      background: var(--light);
       margin-bottom: 14px;
     }
-    /* Placeholder shown when no image is set */
     .highlight-img-placeholder {
       width: 100%;
       aspect-ratio: 1 / 1;
       background: var(--light);
-      border: 1px solid var(--border);
       border-radius: 4px;
       margin-bottom: 14px;
     }
@@ -142,13 +140,18 @@
 
     /* ── WORK GRID ──────────────────────────────── */
     .work-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--border); border-left: 1px solid var(--border); }
-    .work-item { border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 16px 20px; cursor: pointer; transition: background 0.12s; text-decoration: none; display: flex; align-items: center; justify-content: space-between; gap: 8px; background: var(--white); }
+    .work-item { border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 14px 16px; cursor: pointer; transition: background 0.12s; text-decoration: none; display: flex; align-items: center; justify-content: space-between; gap: 6px; background: var(--white); }
     .work-item:hover { background: var(--light); }
-    .work-item .work-name { font-size: 13px; font-weight: 400; color: var(--mid); }
+    .work-item .work-name { font-size: 13px; font-weight: 400; color: var(--mid); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .work-item .work-arrow { font-size: 13px; color: var(--border); flex-shrink: 0; }
     .work-item:hover .work-name { color: var(--black); }
     .work-item:hover .work-arrow { color: var(--mid); }
-    @media (max-width: 520px) { .work-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 520px) {
+      .work-grid { grid-template-columns: repeat(2, 1fr); }
+      .work-item .work-name { font-size: 11px; }
+      .work-item .work-arrow { font-size: 11px; }
+      .work-item { padding: 12px 12px; }
+    }
 
     /* ── EXPERIENCE ─────────────────────────────── */
     .exp-item { display: grid; grid-template-columns: 80px 1fr; gap: 0 24px; padding: 20px 0; border-bottom: 1px solid var(--border); }
@@ -162,16 +165,16 @@
     @media (max-width: 480px) { .exp-item { grid-template-columns: 1fr; gap: 4px; } }
 
     /* ── WORK PAGES ─────────────────────────────── */
-    .work-page-content { font-size: 14px; line-height: 1.8; color: #333; }
+    .work-page-content { font-size: 15px; line-height: 1.8; color: #333; }
     .work-page-content h2 { font-size: 20px; font-weight: 400; margin: 40px 0 12px; color: var(--black); }
     .work-page-content h2:first-child { margin-top: 0; }
     .work-page-content p { margin-bottom: 16px; }
     .work-page-content a { color: var(--black); text-decoration: none; border-bottom: 1px solid var(--border); transition: border-color 0.15s; }
     .work-page-content a:hover { border-bottom-color: var(--black); }
     .work-page-content ul { list-style: none; padding: 0; margin-bottom: 16px; }
-    .work-page-content ul li { padding-left: 16px; position: relative; margin-bottom: 6px; font-size: 13px; }
+    .work-page-content ul li { padding-left: 16px; position: relative; margin-bottom: 6px; font-size: 14px; }
     .work-page-content ul li::before { content: '—'; position: absolute; left: 0; color: var(--mid); }
-    .work-page-content .ext-link { display: inline-block; margin: 4px 0 12px; font-size: 13px; padding: 8px 16px; border: 1px solid var(--border); color: var(--black); text-decoration: none; border-bottom: 1px solid var(--border); transition: background 0.12s, border-color 0.12s; }
+    .work-page-content .ext-link { display: inline-block; margin: 4px 0 12px; font-size: 13px; padding: 8px 16px; border: 1px solid var(--border); color: var(--black); text-decoration: none; transition: background 0.12s, border-color 0.12s; }
     .work-page-content .ext-link:hover { background: var(--light); border-color: var(--black); }
 
     .stat-row { display: flex; gap: 32px; flex-wrap: wrap; margin: 20px 0; padding: 20px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
@@ -180,39 +183,42 @@
     .role-tag { display: inline-block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; border: 1px solid var(--border); padding: 3px 10px; margin-right: 8px; margin-bottom: 8px; color: var(--mid); }
 
     /* ── MASONRY GALLERY ────────────────────────── */
-    /*
-      CSS-columns masonry: images naturally flow at their real aspect ratio.
-      To add images: put <img> tags inside .gallery. They'll wrap automatically.
-      To add more columns on large screens, increase column-count.
-    */
     .gallery {
       columns: 3;
-      column-gap: 10px;
+      column-gap: 8px;
       margin-top: 8px;
     }
     .gallery img {
       width: 100%;
       display: block;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       border-radius: 3px;
       break-inside: avoid;
-      border: 1px solid var(--border);
+      min-height: 120px;
+      background: var(--light);
     }
     @media (max-width: 640px) { .gallery { columns: 2; } }
     @media (max-width: 400px) { .gallery { columns: 1; } }
 
-    /* Single wide image used in some sections */
-    .work-img {
-      width: 100%;
-      display: block;
-      border-radius: 4px;
-      border: 1px solid var(--border);
-      margin: 16px 0;
-    }
+    /* Single wide image */
+    .work-img { width: 100%; display: block; border-radius: 4px; margin: 16px 0; background: var(--light); min-height: 200px; }
     /* Side-by-side pair */
-    .img-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 16px 0; }
-    .img-pair img { width: 100%; display: block; border-radius: 4px; border: 1px solid var(--border); }
+    .img-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 16px 0; }
+    .img-pair img { width: 100%; display: block; border-radius: 4px; background: var(--light); min-height: 160px; }
     @media (max-width: 500px) { .img-pair { grid-template-columns: 1fr; } }
+
+    /* Museum ideation strip — one wide image spanning full width */
+    .ideation-strip { width: 100%; display: block; border-radius: 4px; margin: 0 0 32px; background: var(--light); min-height: 220px; }
+    /* 2-column grid for scene notes / design docs */
+    .img-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 0 0 32px; }
+    .img-grid-2 img { width: 100%; display: block; border-radius: 3px; background: var(--light); min-height: 180px; }
+    /* 3-column grid for activity photos */
+    .img-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin: 0 0 20px; }
+    .img-grid-3 img { width: 100%; display: block; border-radius: 3px; background: var(--light); min-height: 140px; }
+    @media (max-width: 560px) {
+      .img-grid-2 { grid-template-columns: 1fr; }
+      .img-grid-3 { grid-template-columns: 1fr 1fr; }
+    }
 
     /* ── FOOTER ─────────────────────────────────── */
     footer { padding: 32px 0; border-top: 1px solid var(--border); font-size: 12px; color: var(--mid); display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
@@ -240,7 +246,7 @@
           <a href="#" onclick="showHome(); closeMenu(); return false;">Home</a>
           <a href="#" onclick="scrollToWork(); closeMenu(); return false;">Work</a>
           <a href="#" onclick="scrollToExp(); closeMenu(); return false;">Experience</a>
-          <a href="mailto:lunakawano@gmail.com" onclick="closeMenu();">Contact</a>
+          <a href="/cdn-cgi/l/email-protection#ddb1a8b3bcb6bcaabcb3b29dbab0bcb4b1f3beb2b0" onclick="closeMenu();">Contact</a>
         </nav>
       </div>
     </div>
@@ -254,7 +260,7 @@
   <section id="home">
     <div class="hero-layout">
       <div class="hero-photo-wrap">
-        <img class="hero-photo" src="images/luna.png" alt="Luna Kawano" />
+        <img class="hero-photo" src="images/luna.jpg" alt="Luna Kawano" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
       </div>
       <div class="hero-text">
         <div>
@@ -263,7 +269,7 @@
         </div>
         <p>I'm a first-generation Japanese-Canadian designer, developer, and creator based in Banff, Canada. I care deeply about <em>human-centred design</em> — whether that means building a website, launching a community program, or crafting a story worth telling. My background spans design, computing, and business, and I thrive at the intersection of creativity and collaboration.</p>
         <div class="hero-contact">
-          <a href="mailto:lunakawano@gmail.com">lunakawano@gmail.com</a>
+          <a href="/cdn-cgi/l/email-protection#7e120b101f151f091f10113e19131f1712501d1113"><span class="__cf_email__" data-cfemail="96fae3f8f7fdf7e1f7f8f9d6f1fbf7fffab8f5f9fb">[email&#160;protected]</span></a>
           <a href="https://instagram.com/tuna_kawano" target="_blank">@tuna_kawano</a>
           <a href="https://tunakawano.com" target="_blank">tunakawano.com</a>
         </div>
@@ -279,7 +285,7 @@
       <div class="highlight-item">
         <!-- Replace src with your image, or remove the img tag to show the placeholder -->
         <img class="highlight-img" src="images/highlights/reusable.jpg" alt="Banff Isn't Disposable"
-          onerror="this.outerHTML='<div class=\'highlight-img-placeholder\'></div>'" />
+          onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.removeAttribute('src')" />
         <div class="label">Challenge</div>
         <div class="challenge">How might we reduce single-use waste from Banff National Park?</div>
         <div class="solution">Implement a <a href="#" onclick="showPage('reusable'); return false;">reusable container program</a> with the Town of Banff, local businesses, and community volunteers.</div>
@@ -287,7 +293,7 @@
 
       <div class="highlight-item">
         <img class="highlight-img" src="images/highlights/dementia.jpg" alt="Designing for Dementia"
-          onerror="this.outerHTML='<div class=\'highlight-img-placeholder\'></div>'" />
+          onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.removeAttribute('src')" />
         <div class="label">Challenge</div>
         <div class="challenge">How might we help designers create inclusive products for people living with dementia?</div>
         <div class="solution">Create an <a href="#" onclick="showPage('dementia'); return false;">accessible resource</a> in collaboration with people living with dementia.</div>
@@ -295,7 +301,7 @@
 
       <div class="highlight-item">
         <img class="highlight-img" src="images/highlights/vein-to-vein.jpg" alt="Vein to Vein"
-          onerror="this.outerHTML='<div class=\'highlight-img-placeholder\'></div>'" />
+          onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.removeAttribute('src')" />
         <div class="label">Challenge</div>
         <div class="challenge">How might we demystify the blood donation process?</div>
         <div class="solution">Ask 100 people to share their thoughts and experiences. <a href="https://www.youtube.com/watch?v=_7k3xKxv3Vw" target="_blank">Watch on YouTube ↗</a></div>
@@ -315,8 +321,8 @@
       <a class="work-item" href="#" onclick="showPage('graphic'); return false;"><span class="work-name">Graphic Design</span><span class="work-arrow">→</span></a>
       <a class="work-item" href="#" onclick="showPage('video'); return false;"><span class="work-name">Video</span><span class="work-arrow">→</span></a>
       <a class="work-item" href="#" onclick="showPage('photography'); return false;"><span class="work-name">Photography</span><span class="work-arrow">→</span></a>
-      <a class="work-item" href="#" onclick="showPage('art'); return false;"><span class="work-name">Traditional Art</span><span class="work-arrow">→</span></a>
-      <a class="work-item" href="https://tunakawano.com" target="_blank"><span class="work-name">Tuna Kawano ↗</span><span class="work-arrow" style="font-size:11px">art shop</span></a>
+      <a class="work-item" href="#" onclick="showPage('art'); return false;"><span class="work-name">Art</span><span class="work-arrow">→</span></a>
+      <a class="work-item" href="https://tunakawano.com" target="_blank"><span class="work-name">My Art Shop ↗</span><span class="work-arrow" style="font-size:11px"></span></a>
     </div>
   </section>
 
@@ -429,14 +435,6 @@
     <h2>Museum Design</h2>
     <p>Designing a museum exhibit was our third-year capstone project in Knowledge Integration. As the <strong>activity design lead</strong>, I was responsible for ensuring interactivity and engagement were at the centre of our exhibit design.</p>
 
-    <!-- Add images to images/museum/ and list them below -->
-    <div class="gallery">
-      <img src="images/museum/cover.jpg" alt="Vein to Vein exhibit" onerror="this.style.display='none'" />
-      <img src="images/museum/storyboard.jpg" alt="Storyboard" onerror="this.style.display='none'" />
-      <img src="images/museum/exhibit.jpg" alt="Exhibit photo" onerror="this.style.display='none'" />
-      <img src="images/museum/interactive.jpg" alt="Interactive element" onerror="this.style.display='none'" />
-    </div>
-
     <div class="stat-row">
       <div><span class="stat-num">100</span><span class="stat-label">people interviewed</span></div>
       <div><span class="stat-num">2 days</span><span class="stat-label">to recruit them</span></div>
@@ -445,6 +443,24 @@
 
     <p><em>Vein to Vein</em> — everyone has a place in the blood donation community, whether you donate or not. Our exhibit aimed to inform, include, and spark conversation.</p>
 
+    <h2>From Ideation, Storyboarding to Implementation...</h2>
+
+    <!-- Full-width storyboard/ideation image -->
+    <img class="ideation-strip" src="images/museum/storyboard.jpg" alt="Storyboard"
+      onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+
+    <!-- 4 scene notes / design docs in a 2×2 grid -->
+    <div class="img-grid-2">
+      <img src="images/museum/scene-notes-1.jpg" alt="Scene notes 1"
+        onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/museum/scene-notes-2.jpg" alt="Scene notes 2"
+        onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/museum/scene-notes-3.jpg" alt="Scene notes 3"
+        onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/museum/scene-notes-4.jpg" alt="Scene notes 4"
+        onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+    </div>
+
     <h2>My Role as Activity-Design Lead</h2>
     <div class="role-tag">Outreach</div><div class="role-tag">Video Production</div><div class="role-tag">Interactive Elements</div>
     <ul>
@@ -452,6 +468,22 @@
       <li>Spearheaded marketing that recruited 100 participants in 2 days</li>
       <li>Curated interactive elements: blood-type puzzles, an Arduino-powered circulatory system model, and a global blood collection quiz</li>
     </ul>
+
+    <!-- 6 activity / exhibit photos in a 3×2 grid -->
+    <div class="img-grid-3">
+      <img src="images/museum/activity-1.jpg" alt="Activity 1"
+        onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/museum/activity-2.jpg" alt="Activity 2"
+        onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/museum/activity-3.jpg" alt="Activity 3"
+        onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/museum/activity-4.jpg" alt="Activity 4"
+        onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/museum/activity-5.jpg" alt="Activity 5"
+        onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/museum/activity-6.jpg" alt="Activity 6"
+        onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+    </div>
 
     <h2>Videos</h2>
     <a class="ext-link" href="https://www.youtube.com/watch?v=_7k3xKxv3Vw" target="_blank">▶ We Asked 100 People If They Would Donate Blood ↗</a><br/>
@@ -468,9 +500,9 @@
     <p>From winning a $75,000 national competition to growing a social media account by 500%, here are some marketing projects I've worked on.</p>
 
     <div class="gallery">
-      <img src="images/marketing/campaign.jpg" alt="Campaign" onerror="this.style.display='none'" />
-      <img src="images/marketing/social.jpg" alt="Social post" onerror="this.style.display='none'" />
-      <img src="images/marketing/results.jpg" alt="Results" onerror="this.style.display='none'" />
+      <img src="images/marketing/campaign.jpg" alt="Campaign" onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.style.minHeight='160px';this.removeAttribute('src')" />
+      <img src="images/marketing/social.jpg" alt="Social post" onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.style.minHeight='160px';this.removeAttribute('src')" />
+      <img src="images/marketing/results.jpg" alt="Results" onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.style.minHeight='160px';this.removeAttribute('src')" />
     </div>
 
     <div class="stat-row">
@@ -524,14 +556,14 @@
     <p>Revamped an outdated website for a non-profit that has been advocating for Bow Valley ecosystems for over 50 years. Identified core issues through user testing, then redesigned for clarity and usability.</p>
     <!-- Before/after pair — add your screenshots to images/web/ -->
     <div class="img-pair">
-      <img src="images/web/bvn-before.jpg" alt="BVN before" onerror="this.style.display='none'" />
-      <img src="images/web/bvn-after.jpg" alt="BVN after" onerror="this.style.display='none'" />
+      <img src="images/web/bvn-before.jpg" alt="BVN before" onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.style.minHeight='160px';this.removeAttribute('src')" />
+      <img src="images/web/bvn-after.jpg" alt="BVN after" onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.style.minHeight='160px';this.removeAttribute('src')" />
     </div>
     <a class="ext-link" href="http://bowvalleynaturalists.org/" target="_blank">Visit the site ↗</a>
 
     <h2>Tuna Kawano</h2>
     <p>My personal art shop — a single-file HTML/CSS/JS application with a full cart system, product gallery, and Stripe-ready checkout.</p>
-    <img class="work-img" src="images/web/tunakawano.jpg" alt="Tuna Kawano site" onerror="this.style.display='none'" />
+    <img class="work-img" src="images/web/tunakawano.jpg" alt="Tuna Kawano site" onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.style.minHeight='160px';this.removeAttribute('src')" />
     <a class="ext-link" href="https://tunakawano.com" target="_blank">Visit tunakawano.com ↗</a>
   </div>
 </div>
@@ -544,12 +576,36 @@
     <p>A selection of graphic design work across branding, print, and digital.</p>
     <!-- Add any number of images to images/graphic/ — the masonry gallery handles any orientation -->
     <div class="gallery">
-      <img src="images/graphic/01.jpg" alt="" onerror="this.style.display='none'" />
-      <img src="images/graphic/02.jpg" alt="" onerror="this.style.display='none'" />
-      <img src="images/graphic/03.jpg" alt="" onerror="this.style.display='none'" />
-      <img src="images/graphic/04.jpg" alt="" onerror="this.style.display='none'" />
-      <img src="images/graphic/05.jpg" alt="" onerror="this.style.display='none'" />
-      <img src="images/graphic/06.jpg" alt="" onerror="this.style.display='none'" />
+      <img src="images/graphic/01.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/graphic/02.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/graphic/03.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/graphic/04.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/graphic/05.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/graphic/06.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/graphic/07.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/graphic/08.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/graphic/09.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/graphic/10.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/graphic/11.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/graphic/12.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/graphic/13.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/graphic/14.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/graphic/15.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/graphic/16.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/graphic/17.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/graphic/18.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/graphic/19.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/graphic/20.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/graphic/21.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/graphic/22.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/graphic/23.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/graphic/24.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/graphic/25.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/graphic/26.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/graphic/27.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/graphic/28.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/graphic/29.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/graphic/30.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
     </div>
   </div>
 </div>
@@ -580,33 +636,88 @@
     <h2>Photography</h2>
     <!-- Add any number of images to images/photography/ — any orientation works -->
     <div class="gallery">
-      <img src="images/photography/01.jpg" alt="" onerror="this.style.display='none'" />
-      <img src="images/photography/02.jpg" alt="" onerror="this.style.display='none'" />
-      <img src="images/photography/03.jpg" alt="" onerror="this.style.display='none'" />
-      <img src="images/photography/04.jpg" alt="" onerror="this.style.display='none'" />
-      <img src="images/photography/05.jpg" alt="" onerror="this.style.display='none'" />
-      <img src="images/photography/06.jpg" alt="" onerror="this.style.display='none'" />
-      <img src="images/photography/07.jpg" alt="" onerror="this.style.display='none'" />
-      <img src="images/photography/08.jpg" alt="" onerror="this.style.display='none'" />
-      <img src="images/photography/09.jpg" alt="" onerror="this.style.display='none'" />
+      <img src="images/photography/01.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/02.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/03.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/04.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/05.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/06.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/07.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/08.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/09.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/10.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/11.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/12.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/13.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/14.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/15.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/16.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/17.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/18.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/19.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/20.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/21.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/22.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/23.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/24.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/25.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/26.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/27.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/28.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/29.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/30.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
     </div>
   </div>
 </div>
 
 <!-- TRADITIONAL ART -->
 <div id="page-art" class="page-section">
-  <div class="view-header"><button class="back-btn" onclick="showHome()">← Back</button><span class="view-title">Work / Traditional Art</span></div>
+  <div class="view-header"><button class="back-btn" onclick="showHome()">← Back</button><span class="view-title">Work / Art</span></div>
   <div class="work-page-content">
-    <h2>Traditional Art</h2>
+    <h2>Art</h2>
     <p>Visit <a href="https://tunakawano.com" target="_blank">tunakawano.com ↗</a> for prints and original work.</p>
     <!-- Add any number of images to images/art/ -->
     <div class="gallery">
-      <img src="images/art/01.jpg" alt="" onerror="this.style.display='none'" />
-      <img src="images/art/02.jpg" alt="" onerror="this.style.display='none'" />
-      <img src="images/art/03.jpg" alt="" onerror="this.style.display='none'" />
-      <img src="images/art/04.jpg" alt="" onerror="this.style.display='none'" />
-      <img src="images/art/05.jpg" alt="" onerror="this.style.display='none'" />
-      <img src="images/art/06.jpg" alt="" onerror="this.style.display='none'" />
+      <img src="images/art/01.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/02.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/03.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/04.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/05.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/06.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/07.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/08.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/09.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/10.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/11.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/12.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/13.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/14.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/15.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/16.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/17.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/18.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/19.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/20.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/21.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/22.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/23.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/24.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/25.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/26.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/27.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/28.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/29.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/30.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/31.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/32.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/33.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/34.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/35.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/36.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/37.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/38.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/39.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/art/40.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
     </div>
   </div>
 </div>
@@ -618,9 +729,9 @@
     <h2>Banff Isn't Disposable</h2>
     <p>A personal capstone project that grew into a community-wide initiative to reduce single-use waste in Banff National Park.</p>
     <div class="gallery">
-      <img src="images/reusable/01.jpg" alt="" onerror="this.style.display='none'" />
-      <img src="images/reusable/02.jpg" alt="" onerror="this.style.display='none'" />
-      <img src="images/reusable/03.jpg" alt="" onerror="this.style.display='none'" />
+      <img src="images/reusable/01.jpg" alt="" onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.style.minHeight='160px';this.removeAttribute('src')" />
+      <img src="images/reusable/02.jpg" alt="" onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.style.minHeight='160px';this.removeAttribute('src')" />
+      <img src="images/reusable/03.jpg" alt="" onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.style.minHeight='160px';this.removeAttribute('src')" />
     </div>
     <div class="stat-row">
       <div><span class="stat-num">500+</span><span class="stat-label">containers diverted</span></div>
@@ -638,8 +749,8 @@
     <h2>Designing to Reflect Dementia & Personhood</h2>
     <p>A resource to help designers and developers build inclusive products for people living with Alzheimer's and dementia — developed in direct collaboration with end-users through the Research Institute for Aging.</p>
     <div class="gallery">
-      <img src="images/dementia/01.jpg" alt="" onerror="this.style.display='none'" />
-      <img src="images/dementia/02.jpg" alt="" onerror="this.style.display='none'" />
+      <img src="images/dementia/01.jpg" alt="" onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.style.minHeight='160px';this.removeAttribute('src')" />
+      <img src="images/dementia/02.jpg" alt="" onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.style.minHeight='160px';this.removeAttribute('src')" />
     </div>
     <ul>
       <li>Consolidated complex research findings into an accessible, visual format</li>
@@ -655,14 +766,14 @@
   <footer>
     <span>© Luna Kawano 2025</span>
     <span>
-      <a href="mailto:lunakawano@gmail.com">lunakawano@gmail.com</a>
+      <a href="/cdn-cgi/l/email-protection#ef839a818e848e988e8180af88828e8683c18c8082"><span class="__cf_email__" data-cfemail="600c150e010b0117010e0f20070d01090c4e030f0d">[email&#160;protected]</span></a>
       &nbsp;·&nbsp;
       <a href="https://tunakawano.com" target="_blank">tunakawano.com</a>
     </span>
   </footer>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   function toggleMenu() { document.getElementById('mainNav').classList.toggle('open'); }
   function closeMenu()  { document.getElementById('mainNav').classList.remove('open'); }
 
@@ -687,18 +798,4 @@
       showHome();
       setTimeout(() => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' }), 80);
     } else {
-      document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
-
-  function scrollToExp() {
-    if (document.getElementById('homeContent').classList.contains('hidden')) {
-      showHome();
-      setTimeout(() => document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' }), 80);
-    } else {
-      document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
-</script>
-</body>
-</html>
+      document.getElementById(
