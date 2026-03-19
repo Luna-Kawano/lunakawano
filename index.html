@@ -7,8 +7,8 @@
   <meta name="description" content="Luna Kawano — designer, developer, and creator from Banff, Canada." />
   <meta name="author" content="Luna Kawano" />
   <link rel="canonical" href="https://lunakawano.com/" />
-  <meta property="og:title" content="Luna Kawano — Designer & Developer" />
-  <meta property="og:description" content="Jack of all trades. Master of some." />
+  <meta property="og:title" content="Luna Kawano" />
+  <meta property="og:description" content="I like to make things happen." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://lunakawano.com/" />
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
@@ -32,7 +32,7 @@
       background: var(--white);
       color: var(--black);
       font-family: 'Courier Prime', 'Courier', 'Courier New', monospace;
-      font-size: 15px;
+      font-size: 13px;
       line-height: 1.7;
       min-height: 100vh;
     }
@@ -60,9 +60,6 @@
 
     /* ── VIEW SYSTEM ────────────────────────────── */
     .page-section { display: none; padding: 48px 0 80px; }
-    .page-section.active { display: block; }
-    #homeContent { display: block; }
-    #homeContent.hidden { display: none; }
 
     .view-header { display: flex; align-items: center; gap: 16px; margin-bottom: 40px; }
     .back-btn { font-family: 'Courier Prime', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; background: none; border: none; color: var(--mid); cursor: pointer; padding: 0; transition: color 0.15s; }
@@ -88,14 +85,14 @@
       min-height: 200px;
       border-radius: 10px;
       object-fit: cover;
-      object-position: center top;
+      object-position: center 65%;
       display: block;
     }
 
     .hero-text { display: flex; flex-direction: column; flex: 1; }
     .hero-text h1 { font-size: 28px; font-weight: 400; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 4px; }
-    .hero-text .tagline { font-size: 14px; color: var(--mid); font-style: italic; margin-bottom: 20px; }
-    .hero-text p { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 0; flex-grow: 1; }
+    .hero-text .tagline { font-size: 13px; color: var(--mid); font-style: italic; margin-bottom: 20px; }
+    .hero-text p { font-size: 13px; line-height: 1.8; color: #333; margin-bottom: 0; flex-grow: 1; }
     .hero-text p em { font-style: italic; color: var(--black); }
     .hero-contact { display: flex; gap: 20px; flex-wrap: wrap; font-size: 13px; margin-top: 20px; }
     .hero-contact a { color: var(--mid); text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 1px; transition: color 0.15s, border-color 0.15s; }
@@ -104,7 +101,7 @@
     @media (max-width: 560px) {
       .hero-layout { flex-direction: column; gap: 20px; }
       .hero-photo-wrap { width: 100%; }
-      .hero-photo { width: 100%; height: 240px; min-height: unset; border-radius: 8px; }
+      .hero-photo { width: 100%; height: 240px; min-height: unset; border-radius: 8px; object-position: center 65%; }
       .hero-text h1 { font-size: 24px; }
     }
 
@@ -133,7 +130,7 @@
     }
 
     .highlight-item .label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--mid); margin-bottom: 6px; }
-    .highlight-item .challenge { font-size: 13px; font-weight: 700; line-height: 1.4; margin-bottom: 8px; }
+    .highlight-item .challenge { font-size: 13px; font-weight: 500; line-height: 1.4; margin-bottom: 8px; }
     .highlight-item .solution { font-size: 13px; color: #444; line-height: 1.6; }
     .highlight-item .solution a { color: var(--black); text-decoration: none; border-bottom: 1px solid var(--border); transition: border-color 0.15s; }
     .highlight-item .solution a:hover { border-bottom-color: var(--black); }
@@ -172,7 +169,7 @@
     .work-page-content a { color: var(--black); text-decoration: none; border-bottom: 1px solid var(--border); transition: border-color 0.15s; }
     .work-page-content a:hover { border-bottom-color: var(--black); }
     .work-page-content ul { list-style: none; padding: 0; margin-bottom: 16px; }
-    .work-page-content ul li { padding-left: 16px; position: relative; margin-bottom: 6px; font-size: 14px; }
+    .work-page-content ul li { padding-left: 16px; position: relative; margin-bottom: 6px; font-size: 15px; }
     .work-page-content ul li::before { content: '—'; position: absolute; left: 0; color: var(--mid); }
     .work-page-content .ext-link { display: inline-block; margin: 4px 0 12px; font-size: 13px; padding: 8px 16px; border: 1px solid var(--border); color: var(--black); text-decoration: none; transition: background 0.12s, border-color 0.12s; }
     .work-page-content .ext-link:hover { background: var(--light); border-color: var(--black); }
@@ -182,23 +179,43 @@
     .stat-label { font-size: 11px; color: var(--mid); text-transform: uppercase; letter-spacing: 0.1em; }
     .role-tag { display: inline-block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; border: 1px solid var(--border); padding: 3px 10px; margin-right: 8px; margin-bottom: 8px; color: var(--mid); }
 
-    /* ── MASONRY GALLERY ────────────────────────── */
+    /* ── GALLERY ────────────────────────────────── */
     .gallery {
-      columns: 3;
-      column-gap: 8px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
       margin-top: 8px;
     }
     .gallery img {
       width: 100%;
+      height: 220px;
+      object-fit: cover;
       display: block;
-      margin-bottom: 8px;
       border-radius: 3px;
-      break-inside: avoid;
-      min-height: 120px;
       background: var(--light);
     }
-    @media (max-width: 640px) { .gallery { columns: 2; } }
-    @media (max-width: 400px) { .gallery { columns: 1; } }
+    .gallery.square img { width: 100%; height: unset; aspect-ratio: 1 / 1; object-fit: cover; }
+    .gallery.tall img { height: 300px; }
+    .gallery.short img { height: 160px; }
+    .gallery.masonry {
+      display: block;
+      columns: 3;
+      column-gap: 8px;
+    }
+    .gallery.masonry img {
+      height: auto;
+      width: 100%;
+      margin-bottom: 8px;
+      break-inside: avoid;
+    }
+    @media (max-width: 640px) {
+      .gallery { grid-template-columns: repeat(2, 1fr); }
+      .gallery.masonry { columns: 2; }
+    }
+    @media (max-width: 400px) {
+      .gallery { grid-template-columns: 1fr; }
+      .gallery.masonry { columns: 1; }
+    }
 
     /* Single wide image */
     .work-img { width: 100%; display: block; border-radius: 4px; margin: 16px 0; background: var(--light); min-height: 200px; }
@@ -212,6 +229,10 @@
     /* 2-column grid for scene notes / design docs */
     .img-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 0 0 32px; }
     .img-grid-2 img { width: 100%; display: block; border-radius: 3px; background: var(--light); min-height: 180px; }
+    /* 4-up single row for scene notes */
+    .img-grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 8px; margin: 0 0 32px; }
+    .img-grid-4 img { width: 100%; display: block; border-radius: 3px; background: var(--light); min-height: 160px; object-fit: cover; }
+    @media (max-width: 640px) { .img-grid-4 { grid-template-columns: 1fr 1fr; } }
     /* 3-column grid for activity photos */
     .img-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin: 0 0 20px; }
     .img-grid-3 img { width: 100%; display: block; border-radius: 3px; background: var(--light); min-height: 140px; }
@@ -221,7 +242,7 @@
     }
 
     /* ── FOOTER ─────────────────────────────────── */
-    footer { padding: 32px 0; border-top: 1px solid var(--border); font-size: 12px; color: var(--mid); display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    footer { padding: 32px 0; font-size: 12px; color: var(--mid); display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
     footer a { color: var(--mid); text-decoration: none; border-bottom: 1px solid transparent; transition: color 0.15s, border-color 0.15s; }
     footer a:hover { color: var(--black); border-bottom-color: var(--black); }
   </style>
@@ -246,7 +267,7 @@
           <a href="#" onclick="showHome(); closeMenu(); return false;">Home</a>
           <a href="#" onclick="scrollToWork(); closeMenu(); return false;">Work</a>
           <a href="#" onclick="scrollToExp(); closeMenu(); return false;">Experience</a>
-          <a href="/cdn-cgi/l/email-protection#ddb1a8b3bcb6bcaabcb3b29dbab0bcb4b1f3beb2b0" onclick="closeMenu();">Contact</a>
+          <a href="/cdn-cgi/l/email-protection#204b4157414e4f0e4c554e4160474d41494c0e434f4d" onclick="closeMenu();">Contact</a>
         </nav>
       </div>
     </div>
@@ -260,7 +281,7 @@
   <section id="home">
     <div class="hero-layout">
       <div class="hero-photo-wrap">
-        <img class="hero-photo" src="images/luna.jpg" alt="Luna Kawano" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+        <img class="hero-photo" src="images/luna.jpg" alt="Luna Kawano" onerror="this.style.background='var(--light)';this.style.minHeight='200px';this.src=''" />
       </div>
       <div class="hero-text">
         <div>
@@ -269,7 +290,7 @@
         </div>
         <p>I'm a first-generation Japanese-Canadian designer, developer, and creator based in Banff, Canada. I care deeply about <em>human-centred design</em> — whether that means building a website, launching a community program, or crafting a story worth telling. My background spans design, computing, and business, and I thrive at the intersection of creativity and collaboration.</p>
         <div class="hero-contact">
-          <a href="/cdn-cgi/l/email-protection#7e120b101f151f091f10113e19131f1712501d1113"><span class="__cf_email__" data-cfemail="96fae3f8f7fdf7e1f7f8f9d6f1fbf7fffab8f5f9fb">[email&#160;protected]</span></a>
+          <a href="mailto:kawano.luna@gmail.com"target="_blank">kawano.luna@gmail.com</a>
           <a href="https://instagram.com/tuna_kawano" target="_blank">@tuna_kawano</a>
           <a href="https://tunakawano.com" target="_blank">tunakawano.com</a>
         </div>
@@ -436,21 +457,18 @@
     <p>Designing a museum exhibit was our third-year capstone project in Knowledge Integration. As the <strong>activity design lead</strong>, I was responsible for ensuring interactivity and engagement were at the centre of our exhibit design.</p>
 
     <div class="stat-row">
-      <div><span class="stat-num">100</span><span class="stat-label">people interviewed</span></div>
-      <div><span class="stat-num">2 days</span><span class="stat-label">to recruit them</span></div>
       <div><span class="stat-num">3rd yr</span><span class="stat-label">capstone project</span></div>
+      <div><span class="stat-num">100</span><span class="stat-label">people interviewed</span></div>
+      <div><span class="stat-num">2 days</span><span class="stat-label">of filming</span></div>
+      <div><span class="stat-num">4 activities</span><span class="stat-label">Implemented</span></div>
     </div>
 
     <p><em>Vein to Vein</em> — everyone has a place in the blood donation community, whether you donate or not. Our exhibit aimed to inform, include, and spark conversation.</p>
 
     <h2>From Ideation, Storyboarding to Implementation...</h2>
 
-    <!-- Full-width storyboard/ideation image -->
-    <img class="ideation-strip" src="images/museum/storyboard.jpg" alt="Storyboard"
-      onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-
-    <!-- 4 scene notes / design docs in a 2×2 grid -->
-    <div class="img-grid-2">
+    <!-- 4 scene notes in a single row -->
+    <div class="img-grid-4">
       <img src="images/museum/scene-notes-1.jpg" alt="Scene notes 1"
         onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
       <img src="images/museum/scene-notes-2.jpg" alt="Scene notes 2"
@@ -461,12 +479,17 @@
         onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
     </div>
 
+    <!-- Full-width storyboard/ideation image -->
+    <img class="ideation-strip" src="images/museum/storyboard.jpg" alt="Storyboard"
+      onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+
     <h2>My Role as Activity-Design Lead</h2>
     <div class="role-tag">Outreach</div><div class="role-tag">Video Production</div><div class="role-tag">Interactive Elements</div>
     <ul>
       <li>Aligned project goals with Canadian Blood Services and UW campus groups</li>
-      <li>Spearheaded marketing that recruited 100 participants in 2 days</li>
-      <li>Curated interactive elements: blood-type puzzles, an Arduino-powered circulatory system model, and a global blood collection quiz</li>
+      <li>Spearheaded marketing that recruited 100 video participants in 2 days</li>
+      <li>Filmed & edited video asking 100 people if they would donate blood</li>
+      <li>Curated interactive elements: blood-type puzzles, global blood collection quiz, "would you donate?" wall, donation immersion</li>
     </ul>
 
     <!-- 6 activity / exhibit photos in a 3×2 grid -->
@@ -500,9 +523,9 @@
     <p>From winning a $75,000 national competition to growing a social media account by 500%, here are some marketing projects I've worked on.</p>
 
     <div class="gallery">
-      <img src="images/marketing/campaign.jpg" alt="Campaign" onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.style.minHeight='160px';this.removeAttribute('src')" />
-      <img src="images/marketing/social.jpg" alt="Social post" onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.style.minHeight='160px';this.removeAttribute('src')" />
-      <img src="images/marketing/results.jpg" alt="Results" onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.style.minHeight='160px';this.removeAttribute('src')" />
+      <img src="images/marketing/1.jpg" alt="marketing-1" onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.style.minHeight='160px';this.removeAttribute('src')" />
+      <img src="images/marketing/2.jpg" alt="marketing-2" onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.style.minHeight='160px';this.removeAttribute('src')" />
+      <img src="images/marketing/3.jpg" alt="marketing-3" onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.style.minHeight='160px';this.removeAttribute('src')" />
     </div>
 
     <div class="stat-row">
@@ -512,18 +535,26 @@
     </div>
 
     <h2>#MoreThanDementia Campaign</h2>
-    <p>Shared numerous stories of those living with or caring for people with Alzheimer's and dementia.</p>
-    <a class="ext-link" href="https://youtu.be/ORHcafA0w7I" target="_blank">▶ Watch on YouTube ↗</a>
+    <p>Shared numerous stories of those living with Alzheimer's and dementia to engage followers.</p>
+    <p>6k+ organic reach on dementia friendly bookclub post (1200% growth)</p
 
     <h2>AGEWELL National Impact Challenge</h2>
     <p>A promotional video I created won $75,000 for Marlena Books, a dementia-friendly digital reading platform, at AGE-WELL's National Impact Challenge.</p>
+    <a class="ext-link" href="https://youtu.be/ORHcafA0w7I" target="_blank">▶ Watch on YouTube ↗</a>
     <a class="ext-link" href="https://www.newswire.ca/news-releases/dementia-friendly-digital-reading-platform-wins-canada-wide-competition-697913321.html" target="_blank">Read the article ↗</a>
 
     <h2>UW Entrepreneurship Society</h2>
-    <p>As marketing-design lead, I built a network of 10+ tech and entrepreneurship clubs and a joint Discord server of 600+ UW students and alumni.</p>
     <ul>
       <li>Hiring post: 120 link clicks vs usual ~50</li>
-      <li>Book club post impressions far exceeded the usual ~300</li>
+      <li>Built discord server with 10+ entrepreneurship clubs and 600+ student & alumni</li>
+    </ul>
+  </div>
+</div>
+
+      <h2>Knowledge Integration</h2>
+    <ul>
+      <li>3k+ reach & 200 responses to attend for our museum exhibition</li>
+      <li>Successfully recruited 100 people to participate in video project</li>
     </ul>
   </div>
 </div>
@@ -551,6 +582,13 @@
   <div class="work-page-content">
     <h2>Web Design</h2>
 
+    <h2>Tuna Kawano</h2>
+    <p>My personal art shop — a single-file HTML/CSS/JS application with a full cart system, product gallery, and Stripe-ready checkout.</p>
+    <img class="work-img" src="images/web/tunakawano.jpg" alt="Tuna Kawano site" onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.style.minHeight='160px';this.removeAttribute('src')" />
+    <a class="ext-link" href="https://tunakawano.com" target="_blank">Visit tunakawano.com ↗</a>
+  </div>
+</div>
+
     <h2>Bow Valley Naturalists</h2>
     <div class="role-tag">HTML / CSS</div><div class="role-tag">WordPress</div><div class="role-tag">User Testing</div>
     <p>Revamped an outdated website for a non-profit that has been advocating for Bow Valley ecosystems for over 50 years. Identified core issues through user testing, then redesigned for clarity and usability.</p>
@@ -559,14 +597,7 @@
       <img src="images/web/bvn-before.jpg" alt="BVN before" onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.style.minHeight='160px';this.removeAttribute('src')" />
       <img src="images/web/bvn-after.jpg" alt="BVN after" onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.style.minHeight='160px';this.removeAttribute('src')" />
     </div>
-    <a class="ext-link" href="http://bowvalleynaturalists.org/" target="_blank">Visit the site ↗</a>
 
-    <h2>Tuna Kawano</h2>
-    <p>My personal art shop — a single-file HTML/CSS/JS application with a full cart system, product gallery, and Stripe-ready checkout.</p>
-    <img class="work-img" src="images/web/tunakawano.jpg" alt="Tuna Kawano site" onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.style.minHeight='160px';this.removeAttribute('src')" />
-    <a class="ext-link" href="https://tunakawano.com" target="_blank">Visit tunakawano.com ↗</a>
-  </div>
-</div>
 
 <!-- GRAPHIC DESIGN -->
 <div id="page-graphic" class="page-section">
@@ -575,7 +606,7 @@
     <h2>Graphic Design</h2>
     <p>A selection of graphic design work across branding, print, and digital.</p>
     <!-- Add any number of images to images/graphic/ — the masonry gallery handles any orientation -->
-    <div class="gallery">
+    <div class="gallery masonry">
       <img src="images/graphic/01.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
       <img src="images/graphic/02.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
       <img src="images/graphic/03.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
@@ -617,14 +648,14 @@
     <h2>Video</h2>
     <p>From quickly-made personal projects to a video that won $75,000 — each one a learning experience.</p>
     <ul>
-      <li><a href="https://www.youtube.com/watch?v=_7k3xKxv3Vw" target="_blank">We Asked 100 People If They Would Donate Blood ↗</a></li>
-      <li><a href="https://www.youtube.com/watch?v=lAKbc0fUJFE" target="_blank">Dementia-Friendly Reading App — AGEWELL Challenge Entry ↗</a></li>
-      <li><a href="https://youtu.be/ORHcafA0w7I" target="_blank">#MoreThanDementia — Stories of Those Living with Dementia ↗</a></li>
-      <li><a href="https://www.youtube.com/watch?v=Mk7wAVAODhc" target="_blank">Vein to Vein — Museum Exhibit Walkthrough ↗</a></li>
-      <li><a href="https://youtu.be/70_I40uIE_o" target="_blank">What It Feels Like to Donate Blood (1st Person) ↗</a></li>
-      <li><a href="https://www.youtube.com/watch?v=AyRnczCw-V0" target="_blank">Blood Donation: 1st Person Experience ↗</a></li>
-      <li><a href="https://youtu.be/abiQQCfw7Hg" target="_blank">Short Film ↗</a></li>
-      <li><a href="https://youtu.be/2OAe47lSPb8" target="_blank">Short Film II ↗</a></li>
+      <li><a href="https://www.youtube.com/watch?v=_7k3xKxv3Vw" target="_blank">We Asked 100 People If They Would Donate Blood ↗</a></li
+      <li><a href="https://www.youtube.com/watch?v=Mk7wAVAODhc" target="_blank">Why Everyone Should Be A Feminist ↗</a></li>                                                                                                                              
+      <li><a href="https://youtu.be/ORHcafA0w7I" target="_blank">Dementia-Friendly Reading App — AGEWELL Challenge Entry ↗</a></li>
+      <li><a href="https://youtu.be/70_I40uIE_o" target="_blank">Why Hire Me? ReCircle↗</a></li>
+      <li><a href="https://www.youtube.com/watch?v=AyRnczCw-V0" target="_blank">The Social Implications of Autonomous Vehicles ↗</a></li>
+      <li><a href="https://www.youtube.com/watch?v=lAKbc0fUJFE" target="_blank"></a>Art Timelapse</li>
+      <li><a href="https://youtu.be/abiQQCfw7Hg" target="_blank">22 Taylor Swift Lip Sync Birthday Montage ↗</a></li>
+      <li><a href="https://youtu.be/2OAe47lSPb8" target="_blank">Marlena Books - Thank you video ↗</a></li>
     </ul>
   </div>
 </div>
@@ -635,7 +666,7 @@
   <div class="work-page-content">
     <h2>Photography</h2>
     <!-- Add any number of images to images/photography/ — any orientation works -->
-    <div class="gallery">
+    <div class="gallery masonry">
       <img src="images/photography/01.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
       <img src="images/photography/02.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
       <img src="images/photography/03.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
@@ -666,6 +697,37 @@
       <img src="images/photography/28.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
       <img src="images/photography/29.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
       <img src="images/photography/30.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/31.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/32.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/33.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/34.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/35.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/36.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/37.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/38.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/39.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/40.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/41.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/42.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/43.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/44.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/45.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/46.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/47.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/48.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/49.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/51.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/52.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/53.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/54.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/55.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/56.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/57.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/58.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/59.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/60.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/61.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/62.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
     </div>
   </div>
 </div>
@@ -677,7 +739,7 @@
     <h2>Art</h2>
     <p>Visit <a href="https://tunakawano.com" target="_blank">tunakawano.com ↗</a> for prints and original work.</p>
     <!-- Add any number of images to images/art/ -->
-    <div class="gallery">
+    <div class="gallery square">
       <img src="images/art/01.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
       <img src="images/art/02.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
       <img src="images/art/03.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
@@ -760,42 +822,60 @@
   </div>
 </div>
 
-</div><!-- /.container -->
-
-<div class="container">
   <footer>
-    <span>© Luna Kawano 2025</span>
+    <span>© Luna Kawano 2026</span>
     <span>
-      <a href="/cdn-cgi/l/email-protection#ef839a818e848e988e8180af88828e8683c18c8082"><span class="__cf_email__" data-cfemail="600c150e010b0117010e0f20070d01090c4e030f0d">[email&#160;protected]</span></a>
+      <a href="mailto:kawano.luna@gmail.com">kawano.luna@gmail.com</a>
       &nbsp;·&nbsp;
       <a href="https://tunakawano.com" target="_blank">tunakawano.com</a>
     </span>
   </footer>
-</div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+</div><!-- /.container -->
+
+<script>
   function toggleMenu() { document.getElementById('mainNav').classList.toggle('open'); }
   function closeMenu()  { document.getElementById('mainNav').classList.remove('open'); }
 
-  const pages = ['museum','marketing','sound','web','graphic','video','photography','art','reusable','dementia'];
+  var PAGES = ['museum','marketing','sound','web','graphic','video','photography','art','reusable','dementia'];
 
   function showHome() {
-    document.getElementById('homeContent').classList.remove('hidden');
-    pages.forEach(id => document.getElementById('page-' + id).classList.remove('active'));
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.getElementById('homeContent').style.display = 'block';
+    PAGES.forEach(function(id) {
+      var el = document.getElementById('page-' + id);
+      if (el) el.style.display = 'none';
+    });
+    window.scrollTo(0, 0);
   }
 
   function showPage(id) {
-    document.getElementById('homeContent').classList.add('hidden');
-    pages.forEach(pid => document.getElementById('page-' + pid).classList.remove('active'));
-    const el = document.getElementById('page-' + id);
-    if (el) el.classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    document.getElementById('homeContent').style.display = 'none';
+    PAGES.forEach(function(pid) {
+      var el = document.getElementById('page-' + pid);
+      if (el) el.style.display = 'none';
+    });
+    var el = document.getElementById('page-' + id);
+    if (el) {
+      el.style.display = 'block';
+      window.scrollTo(0, 0);
+    }
   }
 
   function scrollToWork() {
-    if (document.getElementById('homeContent').classList.contains('hidden')) {
-      showHome();
-      setTimeout(() => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' }), 80);
-    } else {
-      document.getElementById(
+    showHome();
+    setTimeout(function() {
+      var el = document.getElementById('work');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }, 80);
+  }
+
+  function scrollToExp() {
+    showHome();
+    setTimeout(function() {
+      var el = document.getElementById('experience');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }, 80);
+  }
+</script>
+</body>
+</html>
