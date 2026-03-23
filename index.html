@@ -7,8 +7,8 @@
   <meta name="description" content="Luna Kawano — designer, developer, and creator from Banff, Canada." />
   <meta name="author" content="Luna Kawano" />
   <link rel="canonical" href="https://lunakawano.com/" />
-  <meta property="og:title" content="Luna Kawano" />
-  <meta property="og:description" content="I like to make things happen." />
+  <meta property="og:title" content="Luna Kawano — Designer & Developer" />
+  <meta property="og:description" content="Jack of all trades. Master of some." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://lunakawano.com/" />
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
@@ -32,7 +32,7 @@
       background: var(--white);
       color: var(--black);
       font-family: 'Courier Prime', 'Courier', 'Courier New', monospace;
-      font-size: 13px;
+      font-size: 15px;
       line-height: 1.7;
       min-height: 100vh;
     }
@@ -45,7 +45,7 @@
     .site-logo { height: 32px; width: auto; display: block; }
     .header-right { display: flex; align-items: center; gap: 24px; position: relative; }
     nav { display: flex; gap: 24px; }
-    nav a { font-family: 'Courier Prime', monospace; font-size: 13px; font-weight: 400; color: var(--mid); text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 2px; transition: color 0.15s, border-color 0.15s; cursor: pointer; }
+    nav a { font-family: 'Courier Prime', monospace; font-size: 15px; font-weight: 400; color: var(--mid); text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 2px; transition: color 0.15s, border-color 0.15s; cursor: pointer; }
     nav a:hover { color: var(--black); border-bottom-color: var(--black); }
     .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
     .hamburger span { display: block; width: 22px; height: 2px; background: var(--black); transition: all 0.2s; }
@@ -91,8 +91,8 @@
 
     .hero-text { display: flex; flex-direction: column; flex: 1; }
     .hero-text h1 { font-size: 28px; font-weight: 400; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 4px; }
-    .hero-text .tagline { font-size: 13px; color: var(--mid); font-style: italic; margin-bottom: 20px; }
-    .hero-text p { font-size: 13px; line-height: 1.8; color: #333; margin-bottom: 0; flex-grow: 1; }
+    .hero-text .tagline { font-size: 14px; color: var(--mid); font-style: italic; margin-bottom: 20px; }
+    .hero-text p { font-size: 15px; line-height: 1.8; color: #333; margin-bottom: 0; flex-grow: 1; }
     .hero-text p em { font-style: italic; color: var(--black); }
     .hero-contact { display: flex; gap: 20px; flex-wrap: wrap; font-size: 13px; margin-top: 20px; }
     .hero-contact a { color: var(--mid); text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 1px; transition: color 0.15s, border-color 0.15s; }
@@ -106,34 +106,31 @@
     }
 
     /* ── HIGHLIGHTS ─────────────────────────────── */
+    .highlight-item {} /* see highlight cards block above */
+
     .highlight-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
     @media (max-width: 640px) { .highlight-grid { grid-template-columns: 1fr; } }
-
-    .highlight-item {}
-
-    /* Square image at top of each highlight card */
-    .highlight-img {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      border-radius: 4px;
-      display: block;
-      background: var(--light);
-      margin-bottom: 14px;
-    }
-    .highlight-img-placeholder {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      background: var(--light);
-      border-radius: 4px;
-      margin-bottom: 14px;
-    }
-
+    .highlight-item { text-align: left; }
     .highlight-item .label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--mid); margin-bottom: 6px; }
-    .highlight-item .challenge { font-size: 13px; font-weight: 500; line-height: 1.4; margin-bottom: 8px; }
-    .highlight-item .solution { font-size: 13px; color: #444; line-height: 1.6; }
-    .highlight-item .solution a { color: var(--black); text-decoration: none; border-bottom: 1px solid var(--border); transition: border-color 0.15s; }
-    .highlight-item .solution a:hover { border-bottom-color: var(--black); }
+    .highlight-item .challenge { font-size: 13px; font-weight: 700; line-height: 1.4; margin-bottom: 8px; }
+    .highlight-item .solution { font-size: 13px; color: #444; line-height: 1.6; margin-bottom: 12px; }
+    .highlight-item .solution a { color: var(--black); text-decoration: none; border-bottom: 1px solid var(--border); }
+    /* clickable highlight image */
+    .highlight-img-link { display: block; cursor: pointer; position: relative; overflow: hidden; border-radius: 4px; margin-bottom: 12px; }
+    .highlight-img-link img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; border-radius: 4px; background: var(--light); transition: opacity 0.15s; }
+    .highlight-img-link:hover img { opacity: 0.85; }
+    .highlight-img-link .img-hover-hint { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.15s; }
+    .highlight-img-link:hover .img-hover-hint { opacity: 1; }
+    .highlight-img-link .img-hover-hint span { background: var(--white); color: var(--black); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; padding: 8px 16px; border: 1px solid var(--border); }
+    /* plain (non-clickable) highlight image */
+    .highlight-img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; border-radius: 4px; background: var(--light); margin-bottom: 12px; }
+    /* 4-image row for dementia, uncropped */
+    .img-row-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 8px 0 12px; }
+    .img-row-4 img { width: 100%; display: block; border-radius: 3px; background: var(--light); }
+    @media (max-width: 560px) { .img-row-4 { grid-template-columns: repeat(2, 1fr); } }
+    /* inline button row */
+    .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 0 0 12px; }
+    .btn-row.left { justify-content: flex-start; }
 
     /* ── WORK GRID ──────────────────────────────── */
     .work-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--border); border-left: 1px solid var(--border); }
@@ -157,7 +154,7 @@
     .exp-role { font-size: 14px; font-weight: 700; line-height: 1.3; margin-bottom: 2px; }
     .exp-org { font-size: 13px; color: var(--mid); margin-bottom: 8px; }
     .exp-org em { font-style: normal; color: #555; }
-    .exp-desc { font-size: 13px; color: #444; line-height: 1.7; }
+    .exp-desc { font-size: 15px; color: #444; line-height: 1.7; }
     .exp-desc p { margin-bottom: 4px; }
     @media (max-width: 480px) { .exp-item { grid-template-columns: 1fr; gap: 4px; } }
 
@@ -174,10 +171,28 @@
     .work-page-content .ext-link { display: inline-block; margin: 4px 0 12px; font-size: 13px; padding: 8px 16px; border: 1px solid var(--border); color: var(--black); text-decoration: none; transition: background 0.12s, border-color 0.12s; }
     .work-page-content .ext-link:hover { background: var(--light); border-color: var(--black); }
 
-    .stat-row { display: flex; gap: 32px; flex-wrap: wrap; margin: 20px 0; padding: 20px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .stat-num { font-size: 22px; font-weight: 700; display: block; }
-    .stat-label { font-size: 11px; color: var(--mid); text-transform: uppercase; letter-spacing: 0.1em; }
+    .stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 0; margin: 20px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .stat-row > div { text-align: center; padding: 16px 6px; border-right: 1px solid var(--border); white-space: nowrap; }
+    .stat-row > div:last-child { border-right: none; }
+    .stat-num { font-size: 20px; font-weight: 700; display: block; }
+    .stat-label { font-size: 10px; color: var(--mid); text-transform: uppercase; letter-spacing: 0.08em; }
+    @media (max-width: 560px) {
+      .stat-row { grid-template-columns: repeat(2, 1fr); }
+      .stat-row > div { border-bottom: 1px solid var(--border); }
+      .stat-row > div:nth-child(odd) { border-right: 1px solid var(--border); }
+      .stat-row > div:nth-child(even) { border-right: none; }
+      .stat-row > div:nth-last-child(-n+2) { border-bottom: none; }
+      .stat-num { font-size: 17px; }
+      .stat-label { font-size: 9px; letter-spacing: 0.05em; }
+    }
     .role-tag { display: inline-block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; border: 1px solid var(--border); padding: 3px 10px; margin-right: 8px; margin-bottom: 8px; color: var(--mid); }
+
+    /* First h2 in work pages is the page title — larger */
+    .work-page-content h2.page-title { font-size: 26px; font-weight: 400; margin-bottom: 16px; }
+    @media (max-width: 560px) {
+      .work-page-content h2 { font-size: 16px; }
+      .work-page-content h2.page-title { font-size: 22px; }
+    }
 
     /* ── GALLERY ────────────────────────────────── */
     .gallery {
@@ -242,7 +257,7 @@
     }
 
     /* ── FOOTER ─────────────────────────────────── */
-    footer { padding: 32px 0; border-top: 0px solid var(--border); font-size: 12px; color: var(--mid); display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    footer { padding: 32px 0; border-top: none; font-size: 12px; color: var(--mid); display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
     footer a { color: var(--mid); text-decoration: none; border-bottom: 1px solid transparent; transition: color 0.15s, border-color 0.15s; }
     footer a:hover { color: var(--black); border-bottom-color: var(--black); }
   </style>
@@ -267,7 +282,7 @@
           <a href="#" onclick="showHome(); closeMenu(); return false;">Home</a>
           <a href="#" onclick="scrollToWork(); closeMenu(); return false;">Work</a>
           <a href="#" onclick="scrollToExp(); closeMenu(); return false;">Experience</a>
-          <a href="/cdn-cgi/l/email-protection#204b4157414e4f0e4c554e4160474d41494c0e434f4d" onclick="closeMenu();">Contact</a>
+          <a href="mailto:&#107;&#97;&#119;&#97;&#110;&#111;&#46;&#108;&#117;&#110;&#97;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;" onclick="closeMenu();">Contact</a>
         </nav>
       </div>
     </div>
@@ -290,7 +305,7 @@
         </div>
         <p>I'm a first-generation Japanese-Canadian designer, developer, and creator based in Banff, Canada. I care deeply about <em>human-centred design</em> — whether that means building a website, launching a community program, or crafting a story worth telling. My background spans design, computing, and business, and I thrive at the intersection of creativity and collaboration.</p>
         <div class="hero-contact">
-          <a href="mailto:kawano.luna@gmail.com"target="_blank">kawano.luna@gmail.com</a>
+          <a href="mailto:&#107;&#97;&#119;&#97;&#110;&#111;&#46;&#108;&#117;&#110;&#97;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#107;&#97;&#119;&#97;&#110;&#111;&#46;&#108;&#117;&#110;&#97;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a>
           <a href="https://instagram.com/tuna_kawano" target="_blank">@tuna_kawano</a>
           <a href="https://tunakawano.com" target="_blank">tunakawano.com</a>
         </div>
@@ -304,25 +319,27 @@
     <div class="highlight-grid">
 
       <div class="highlight-item">
-        <!-- Replace src with your image, or remove the img tag to show the placeholder -->
-        <img class="highlight-img" src="images/highlights/reusable.jpg" alt="Banff Isn't Disposable"
-          onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.removeAttribute('src')" />
+        <a class="highlight-img-link" href="#" onclick="showPage('reusable'); return false;">
+          <img src="images/highlights/reusable.jpg" alt="Banff Isn't Disposable" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+          <div class="img-hover-hint"><span>View Project</span></div>
+        </a>
         <div class="label">Challenge</div>
         <div class="challenge">How might we reduce single-use waste from Banff National Park?</div>
         <div class="solution">Implement a <a href="#" onclick="showPage('reusable'); return false;">reusable container program</a> with the Town of Banff, local businesses, and community volunteers.</div>
       </div>
 
       <div class="highlight-item">
-        <img class="highlight-img" src="images/highlights/dementia.jpg" alt="Designing for Dementia"
-          onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.removeAttribute('src')" />
+        <a class="highlight-img-link" href="#" onclick="showPage('dementia'); return false;">
+          <img src="images/highlights/dementia.jpg" alt="Designing for Dementia" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+          <div class="img-hover-hint"><span>View Project</span></div>
+        </a>
         <div class="label">Challenge</div>
         <div class="challenge">How might we help designers create inclusive products for people living with dementia?</div>
         <div class="solution">Create an <a href="#" onclick="showPage('dementia'); return false;">accessible resource</a> in collaboration with people living with dementia.</div>
       </div>
 
       <div class="highlight-item">
-        <img class="highlight-img" src="images/highlights/vein-to-vein.jpg" alt="Vein to Vein"
-          onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.removeAttribute('src')" />
+        <img class="highlight-img" src="images/highlights/vein-to-vein.jpg" alt="Vein to Vein" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
         <div class="label">Challenge</div>
         <div class="challenge">How might we demystify the blood donation process?</div>
         <div class="solution">Ask 100 people to share their thoughts and experiences. <a href="https://www.youtube.com/watch?v=_7k3xKxv3Vw" target="_blank">Watch on YouTube ↗</a></div>
@@ -453,17 +470,31 @@
 <div id="page-museum" class="page-section">
   <div class="view-header"><button class="back-btn" onclick="showHome()">← Back</button><span class="view-title">Work / Museum Design</span></div>
   <div class="work-page-content">
-    <h2>Museum Design</h2>
+    <h2 class="page-title">Museum Design</h2>
     <p>Designing a museum exhibit was our third-year capstone project in Knowledge Integration. As the <strong>activity design lead</strong>, I was responsible for ensuring interactivity and engagement were at the centre of our exhibit design.</p>
 
     <div class="stat-row">
       <div><span class="stat-num">3rd yr</span><span class="stat-label">capstone project</span></div>
       <div><span class="stat-num">100</span><span class="stat-label">people interviewed</span></div>
       <div><span class="stat-num">2 days</span><span class="stat-label">of filming</span></div>
-      <div><span class="stat-num">4 activities</span><span class="stat-label">Implemented</span></div>
+      <div><span class="stat-num">4</span><span class="stat-label">activities</span></div>
     </div>
 
     <p><em>Vein to Vein</em> — everyone has a place in the blood donation community, whether you donate or not. Our exhibit aimed to inform, include, and spark conversation.</p>
+
+    <h2>My Role as Activity-Design Lead</h2>
+    <div class="role-tag">Outreach</div><div class="role-tag">Video Production</div><div class="role-tag">Interactive Elements</div>
+    <ul>
+      <li>Aligned project goals with Canadian Blood Services and UW campus groups</li>
+      <li>Spearheaded marketing that recruited 100 video participants in 2 days</li>
+      <li>Filmed &amp; edited video asking 100 people if they would donate blood</li>
+      <li>Curated interactive elements: blood-type puzzles, global blood collection quiz, "would you donate?" wall, donation immersion</li>
+    </ul>
+
+    <h2>Videos</h2>
+    <a class="ext-link" href="https://www.youtube.com/watch?v=_7k3xKxv3Vw" target="_blank">▶ We Asked 100 People If They Would Donate Blood ↗</a><br/>
+    <a class="ext-link" href="https://www.youtube.com/watch?v=t70uAZCNXME" target="_blank">▶ 1st-Person: What It's Like to Donate Blood ↗</a><br/>
+    <a class="ext-link" href="https://youtu.be/Hloe7ltWY80" target="_blank">▶ UW Faculty of Environment Feature ↗</a>
 
     <h2>From Ideation, Storyboarding to Implementation...</h2>
 
@@ -479,39 +510,21 @@
         onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
     </div>
 
-    <!-- Full-width storyboard/ideation image -->
-    <img class="ideation-strip" src="images/museum/storyboard.jpg" alt="Storyboard"
-      onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-
-    <h2>My Role as Activity-Design Lead</h2>
-    <div class="role-tag">Outreach</div><div class="role-tag">Video Production</div><div class="role-tag">Interactive Elements</div>
-    <ul>
-      <li>Aligned project goals with Canadian Blood Services and UW campus groups</li>
-      <li>Spearheaded marketing that recruited 100 video participants in 2 days</li>
-      <li>Filmed & edited video asking 100 people if they would donate blood</li>
-      <li>Curated interactive elements: blood-type puzzles, global blood collection quiz, "would you donate?" wall, donation immersion</li>
-    </ul>
-
-    <!-- 6 activity / exhibit photos in a 3×2 grid -->
-    <div class="img-grid-3">
-      <img src="images/museum/activity-1.jpg" alt="Activity 1"
+    <!-- Results images row -->
+    <div class="img-grid-4">
+      <img src="images/museum/results-1.jpg" alt="Results 1"
         onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/museum/activity-2.jpg" alt="Activity 2"
+      <img src="images/museum/results-2.jpg" alt="Results 2"
         onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/museum/activity-3.jpg" alt="Activity 3"
+      <img src="images/museum/results-3.jpg" alt="Results 3"
         onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/museum/activity-4.jpg" alt="Activity 4"
-        onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/museum/activity-5.jpg" alt="Activity 5"
-        onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/museum/activity-6.jpg" alt="Activity 6"
+      <img src="images/museum/results-4.jpg" alt="Results 4"
         onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
     </div>
 
-    <h2>Videos</h2>
-    <a class="ext-link" href="https://www.youtube.com/watch?v=_7k3xKxv3Vw" target="_blank">▶ We Asked 100 People If They Would Donate Blood ↗</a><br/>
-    <a class="ext-link" href="https://www.youtube.com/watch?v=t70uAZCNXME" target="_blank">▶ 1st-Person: What It's Like to Donate Blood ↗</a><br/>
-    <a class="ext-link" href="https://youtu.be/Hloe7ltWY80" target="_blank">▶ UW Faculty of Environment Feature ↗</a>
+    <!-- Full-width exhibit photo -->
+    <img class="ideation-strip" src="images/museum/full.jpg" alt="Full exhibit"
+      onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
   </div>
 </div>
 
@@ -519,57 +532,74 @@
 <div id="page-marketing" class="page-section">
   <div class="view-header"><button class="back-btn" onclick="showHome()">← Back</button><span class="view-title">Work / Marketing</span></div>
   <div class="work-page-content">
-    <h2>Marketing</h2>
+    <h2 class="page-title">Marketing</h2>
     <p>From winning a $75,000 national competition to growing a social media account by 500%, here are some marketing projects I've worked on.</p>
-
-    <div class="gallery">
-      <img src="images/marketing/1.jpg" alt="marketing-1" onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.style.minHeight='160px';this.removeAttribute('src')" />
-      <img src="images/marketing/2.jpg" alt="marketing-2" onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.style.minHeight='160px';this.removeAttribute('src')" />
-      <img src="images/marketing/3.jpg" alt="marketing-3" onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.style.minHeight='160px';this.removeAttribute('src')" />
-    </div>
 
     <div class="stat-row">
       <div><span class="stat-num">$75K</span><span class="stat-label">prize won</span></div>
-      <div><span class="stat-num">500%</span><span class="stat-label">follower growth</span></div>
-      <div><span class="stat-num">120</span><span class="stat-label">link clicks on hiring post</span></div>
+      <div><span class="stat-num">6k+</span><span class="stat-label">organic reach</span></div>
+      <div><span class="stat-num">200</span><span class="stat-label">event responses</span></div>
+      <div><span class="stat-num">100</span><span class="stat-label">video recruits</span></div>
     </div>
 
     <h2>#MoreThanDementia Campaign</h2>
-    <p>Shared numerous stories of those living with Alzheimer's and dementia to engage followers.</p>
-    <p>6k+ organic reach on dementia friendly bookclub post (1200% growth)</p
+    <ul>
+      <li>Increased follower growth by 500%</li>
+      <li>6k+ organic reach on dementia friendly bookclub post (vs usual ~300)</li>
+    </ul>
 
     <h2>AGEWELL National Impact Challenge</h2>
     <p>A promotional video I created won $75,000 for Marlena Books, a dementia-friendly digital reading platform, at AGE-WELL's National Impact Challenge.</p>
-    <a class="ext-link" href="https://youtu.be/ORHcafA0w7I" target="_blank">▶ Watch on YouTube ↗</a>
-    <a class="ext-link" href="https://www.newswire.ca/news-releases/dementia-friendly-digital-reading-platform-wins-canada-wide-competition-697913321.html" target="_blank">Read the article ↗</a>
+    <div class="btn-row left">
+      <a class="ext-link" href="https://youtu.be/ORHcafA0w7I" target="_blank">▶ Watch on YouTube ↗</a>
+      <a class="ext-link" href="https://www.newswire.ca/news-releases/dementia-friendly-digital-reading-platform-wins-canada-wide-competition-697913321.html" target="_blank">Read the article ↗</a>
+    </div>
 
     <h2>UW Entrepreneurship Society</h2>
     <ul>
       <li>Hiring post: 120 link clicks vs usual ~50</li>
-      <li>Built discord server with 10+ entrepreneurship clubs and 600+ student & alumni</li>
+      <li>Built discord server with 10+ entrepreneurship clubs and 600+ student &amp; alumni</li>
     </ul>
 
     <h2>Knowledge Integration</h2>
     <ul>
-      <li>3k+ reach & 200 responses to attend for our museum exhibition</li>
+      <li>3k+ reach &amp; 200 responses to attend for our museum exhibition</li>
       <li>Successfully recruited 100 people to participate in video project</li>
     </ul>
+
+    <h2>Banff Isn't Disposable</h2>
+    <ul>
+      <li>Convinced 8 local businesses, the Town of Banff, and 20+ community volunteers to participate in a reusable container pilot program</li>
+      <li>Created social media that quickly attracted local and national coverage</li>
+    </ul>
+    <div class="btn-row left">
+      <a class="ext-link" href="https://www.cbc.ca/news/canada/calgary/banff-reusable-containers-1.6082016" target="_blank">Read CBC Article ↗</a>
+      <a class="ext-link" href="https://www.rmoutlook.com/banff/banff-restaurants-municipality-back-reusable-container-pilot-by-local-student-3581337" target="_blank">Read Outlook Article ↗</a>
+    </div>
+
+    <div class="gallery square">
+      <img src="images/marketing/marketing-1.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/marketing/marketing-2.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/marketing/marketing-3.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/marketing/marketing-4.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/marketing/marketing-5.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/marketing/marketing-6.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+    </div>
   </div>
 </div>
-
 
 <!-- SOUND DESIGN -->
 <div id="page-sound" class="page-section">
   <div class="view-header"><button class="back-btn" onclick="showHome()">← Back</button><span class="view-title">Work / Sound Design</span></div>
   <div class="work-page-content">
-    <h2>Sound Design</h2>
-    <p>A pair of podcasts made for a digital communication course — both grounded in research and scripting, so hopefully they show writing ability alongside sound design.</p>
+    <h2 class="page-title">Sound Design</h2>
+    <p>A pair of podcasts made for a digital communication course. The first is grounded in research and the second in creative storytelling with an emphasis on sound design.</p>
 
-    <h2>shiiiin — the sound of silence</h2>
+    <h2>Shiiiin — The Sound of Silence</h2>
     <p>A deep dive into the surprisingly complex world of onomatopoeias: how they differ across languages and why it matters.</p>
     <a class="ext-link" href="https://soundcloud.com/luna-kawano/shiiiinthe-sound-of-silence" target="_blank">▶ Listen on SoundCloud ↗</a>
 
-    <h2>the door</h2>
+    <h2>The Door</h2>
     <p>A fictional podcast with ample use of sound design — an assignment that turned into a fun creative exercise.</p>
     <a class="ext-link" href="https://soundcloud.com/luna-kawano/the-door" target="_blank">▶ Listen on SoundCloud ↗</a>
   </div>
@@ -579,27 +609,33 @@
 <div id="page-web" class="page-section">
   <div class="view-header"><button class="back-btn" onclick="showHome()">← Back</button><span class="view-title">Work / Web Design</span></div>
   <div class="work-page-content">
-    <h2>Web Design</h2>
+    <h2 class="page-title">Web Design</h2>
 
     <h2>Tuna Kawano</h2>
     <p>My personal art shop — a single-file HTML/CSS/JS application with a full cart system, product gallery, and Stripe-ready checkout.</p>
-    <img class="work-img" src="images/web/tunakawano.jpg" alt="Tuna Kawano site" onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.style.minHeight='160px';this.removeAttribute('src')" />
+    <img class="work-img" src="images/web/tunakawano.jpg" alt="Tuna Kawano site" onerror="this.style.background='var(--light)';this.removeAttribute('src')" style="border:1px solid var(--border)" />
     <a class="ext-link" href="https://tunakawano.com" target="_blank">Visit tunakawano.com ↗</a>
+
+    <h2>Luna Kawano</h2>
+    <p>This portfolio website — built from scratch as a single-file HTML/CSS/JS site.</p>
+    <img class="work-img" src="images/web/lunakawano.jpg" alt="lunakawano.com" onerror="this.style.background='var(--light)';this.removeAttribute('src')" style="border:1px solid var(--border)" />
+    <a class="ext-link" href="https://lunakawano.com" target="_blank">Visit lunakawano.com ↗</a>
 
     <h2>Bow Valley Naturalists</h2>
     <div class="role-tag">HTML / CSS</div><div class="role-tag">WordPress</div><div class="role-tag">User Testing</div>
     <p>Revamped an outdated website for a non-profit that has been advocating for Bow Valley ecosystems for over 50 years. Identified core issues through user testing, then redesigned for clarity and usability.</p>
     <div class="img-pair">
-      <img src="images/web/bvn-before.jpg" alt="BVN before" onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.style.minHeight='160px';this.removeAttribute('src')" />
-      <img src="images/web/bvn-after.jpg" alt="BVN after" onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.style.minHeight='160px';this.removeAttribute('src')" />
+      <img src="images/web/bvn-before.jpg" alt="BVN before" onerror="this.style.background='var(--light)';this.removeAttribute('src')" style="border:1px solid var(--border)" />
+      <img src="images/web/bvn-after.jpg" alt="BVN after" onerror="this.style.background='var(--light)';this.removeAttribute('src')" style="border:1px solid var(--border)" />
     </div>
+  </div>
 </div>
 
 <!-- GRAPHIC DESIGN -->
 <div id="page-graphic" class="page-section">
   <div class="view-header"><button class="back-btn" onclick="showHome()">← Back</button><span class="view-title">Work / Graphic Design</span></div>
   <div class="work-page-content">
-    <h2>Graphic Design</h2>
+    <h2 class="page-title">Graphic Design</h2>
     <p>A selection of graphic design work across branding, print, and digital.</p>
     <!-- Add any number of images to images/graphic/ — the masonry gallery handles any orientation -->
     <div class="gallery masonry">
@@ -633,6 +669,11 @@
       <img src="images/graphic/28.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
       <img src="images/graphic/29.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
       <img src="images/graphic/30.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/graphic/31.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/graphic/32.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/graphic/33.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/graphic/34.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/graphic/35.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
     </div>
   </div>
 </div>
@@ -641,15 +682,15 @@
 <div id="page-video" class="page-section">
   <div class="view-header"><button class="back-btn" onclick="showHome()">← Back</button><span class="view-title">Work / Video</span></div>
   <div class="work-page-content">
-    <h2>Video</h2>
-    <p>From quickly-made personal projects to a video that won $75,000 — each one a learning experience.</p>
+    <h2 class="page-title">Video</h2>
+    <p>From quickly-made personal projects to a video that won $75,000, each video was a great learning experience.</p>
     <ul>
-      <li><a href="https://www.youtube.com/watch?v=_7k3xKxv3Vw" target="_blank">We Asked 100 People If They Would Donate Blood ↗</a></li
-      <li><a href="https://www.youtube.com/watch?v=Mk7wAVAODhc" target="_blank">Why Everyone Should Be A Feminist ↗</a></li>                                                                                                                              
+      <li><a href="https://www.youtube.com/watch?v=_7k3xKxv3Vw" target="_blank">We Asked 100 People If They Would Donate Blood ↗</a></li>
+      <li><a href="https://www.youtube.com/watch?v=Mk7wAVAODhc" target="_blank">Why Everyone Should Be A Feminist ↗</a></li>
       <li><a href="https://youtu.be/ORHcafA0w7I" target="_blank">Dementia-Friendly Reading App — AGEWELL Challenge Entry ↗</a></li>
-      <li><a href="https://youtu.be/70_I40uIE_o" target="_blank">Why Hire Me? ReCircle↗</a></li>
+      <li><a href="https://youtu.be/70_I40uIE_o" target="_blank">Why Hire Me? ReCircle ↗</a></li>
       <li><a href="https://www.youtube.com/watch?v=AyRnczCw-V0" target="_blank">The Social Implications of Autonomous Vehicles ↗</a></li>
-      <li><a href="https://www.youtube.com/watch?v=lAKbc0fUJFE" target="_blank"></a>Art Timelapse</li>
+      <li><a href="https://www.youtube.com/watch?v=lAKbc0fUJFE" target="_blank">Art Timelapse ↗</a></li>
       <li><a href="https://youtu.be/abiQQCfw7Hg" target="_blank">22 Taylor Swift Lip Sync Birthday Montage ↗</a></li>
       <li><a href="https://youtu.be/2OAe47lSPb8" target="_blank">Marlena Books - Thank you video ↗</a></li>
     </ul>
@@ -660,7 +701,7 @@
 <div id="page-photography" class="page-section">
   <div class="view-header"><button class="back-btn" onclick="showHome()">← Back</button><span class="view-title">Work / Photography</span></div>
   <div class="work-page-content">
-    <h2>Photography</h2>
+    <h2 class="page-title">Photography</h2>
     <!-- Add any number of images to images/photography/ — any orientation works -->
     <div class="gallery masonry">
       <img src="images/photography/01.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
@@ -712,6 +753,7 @@
       <img src="images/photography/47.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
       <img src="images/photography/48.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
       <img src="images/photography/49.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/50.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
       <img src="images/photography/51.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
       <img src="images/photography/52.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
       <img src="images/photography/53.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
@@ -724,6 +766,22 @@
       <img src="images/photography/60.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
       <img src="images/photography/61.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
       <img src="images/photography/62.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/63.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/64.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/65.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/66.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/67.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/68.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/69.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/70.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/71.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/72.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/73.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/74.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/75.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/76.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/77.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/photography/78.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
     </div>
   </div>
 </div>
@@ -732,7 +790,7 @@
 <div id="page-art" class="page-section">
   <div class="view-header"><button class="back-btn" onclick="showHome()">← Back</button><span class="view-title">Work / Art</span></div>
   <div class="work-page-content">
-    <h2>Art</h2>
+    <h2 class="page-title">Art</h2>
     <p>Visit <a href="https://tunakawano.com" target="_blank">tunakawano.com ↗</a> for prints and original work.</p>
     <!-- Add any number of images to images/art/ -->
     <div class="gallery square">
@@ -784,32 +842,41 @@
 <div id="page-reusable" class="page-section">
   <div class="view-header"><button class="back-btn" onclick="showHome()">← Back</button><span class="view-title">Highlights / Banff Isn't Disposable</span></div>
   <div class="work-page-content">
-    <h2>Banff Isn't Disposable</h2>
+    <h2 class="page-title">Banff Isn't Disposable</h2>
     <p>A personal capstone project that grew into a community-wide initiative to reduce single-use waste in Banff National Park.</p>
-    <div class="gallery">
-      <img src="images/reusable/01.jpg" alt="" onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.style.minHeight='160px';this.removeAttribute('src')" />
-      <img src="images/reusable/02.jpg" alt="" onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.style.minHeight='160px';this.removeAttribute('src')" />
-      <img src="images/reusable/03.jpg" alt="" onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.style.minHeight='160px';this.removeAttribute('src')" />
-    </div>
     <div class="stat-row">
       <div><span class="stat-num">500+</span><span class="stat-label">containers diverted</span></div>
       <div><span class="stat-num">8</span><span class="stat-label">local businesses</span></div>
       <div><span class="stat-num">20+</span><span class="stat-label">volunteers</span></div>
+      <div><span class="stat-num">1</span><span class="stat-label">bylaw changed</span></div>
     </div>
-    <p>Collaborated with the Town of Banff, 20+ volunteers, and 8 local businesses to implement and launch the pilot. Over 500 containers were diverted from the waste stream and a new single-use bylaw was approved in Banff National Park.</p>
+    <p>Convinced 8 local businesses, the Town of Banff, and 20+ community volunteers to participate in a reusable container pilot program. Over 500 containers were diverted from the waste stream and a new single-use bylaw was approved in Banff National Park. Created social media that quickly attracted local and national coverage.</p>
+    <a class="ext-link" href="https://www.cbc.ca/news/canada/calgary/banff-reusable-containers-1.6082016" target="_blank">Read CBC Article ↗</a>
+    <a class="ext-link" href="https://www.rmoutlook.com/banff/banff-restaurants-municipality-back-reusable-container-pilot-by-local-student-3581337" target="_blank">Read Outlook Article ↗</a>
+    <div class="gallery square">
+      <img src="images/highlights/bid-1.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/highlights/bid-2.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/highlights/bid-3.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/highlights/bid-4.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/highlights/bid-5.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/highlights/bid-6.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+    </div>
   </div>
 </div>
 
 <!-- DEMENTIA RESOURCE -->
 <div id="page-dementia" class="page-section">
-  <div class="view-header"><button class="back-btn" onclick="showHome()">← Back</button><span class="view-title">Highlights / Research Institute for Aging</span></div>
+  <div class="view-header"><button class="back-btn" onclick="showHome()">← Back</button><span class="view-title">Highlights / Designing to Reflect Personhood & Dementia</span></div>
   <div class="work-page-content">
-    <h2>Designing to Reflect Dementia & Personhood</h2>
+    <h2 class="page-title">Designing to Reflect Personhood &amp; Dementia</h2>
     <p>A resource to help designers and developers build inclusive products for people living with Alzheimer's and dementia — developed in direct collaboration with end-users through the Research Institute for Aging.</p>
-    <div class="gallery">
-      <img src="images/dementia/01.jpg" alt="" onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.style.minHeight='160px';this.removeAttribute('src')" />
-      <img src="images/dementia/02.jpg" alt="" onerror="this.style.background='var(--light)';this.style.border='1px solid var(--border)';this.style.minHeight='160px';this.removeAttribute('src')" />
+    <div class="img-row-4">
+      <img src="images/highlights/dementia-1.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/highlights/dementia-2.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/highlights/dementia-3.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img src="images/highlights/dementia-4.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
     </div>
+    <a class="ext-link" href="https://the-ria.ca/wp-content/uploads/2022/03/Designing-to-Include-Dementia-and-Personhood_print.pdf" target="_blank">Read Resource ↗</a>
     <ul>
       <li>Consolidated complex research findings into an accessible, visual format</li>
       <li>Engaged with clients and end-users throughout the design process</li>
@@ -819,59 +886,16 @@
 </div>
 
   <footer>
-    <span>© Luna Kawano 2026</span>
+    <span>&copy; Luna Kawano 2026</span>
     <span>
-      <a href="mailto:kawano.luna@gmail.com">kawano.luna@gmail.com</a>
-      &nbsp;·&nbsp;
+      <a href="mailto:&#107;&#97;&#119;&#97;&#110;&#111;&#46;&#108;&#117;&#110;&#97;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#107;&#97;&#119;&#97;&#110;&#111;&#46;&#108;&#117;&#110;&#97;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a>
+      &nbsp;&middot;&nbsp;
       <a href="https://tunakawano.com" target="_blank">tunakawano.com</a>
     </span>
   </footer>
 
 </div><!-- /.container -->
 
-<script>
-  function toggleMenu() { document.getElementById('mainNav').classList.toggle('open'); }
-  function closeMenu()  { document.getElementById('mainNav').classList.remove('open'); }
-
-  var PAGES = ['museum','marketing','sound','web','graphic','video','photography','art','reusable','dementia'];
-
-  function showHome() {
-    document.getElementById('homeContent').style.display = 'block';
-    PAGES.forEach(function(id) {
-      var el = document.getElementById('page-' + id);
-      if (el) el.style.display = 'none';
-    });
-    window.scrollTo(0, 0);
-  }
-
-  function showPage(id) {
-    document.getElementById('homeContent').style.display = 'none';
-    PAGES.forEach(function(pid) {
-      var el = document.getElementById('page-' + pid);
-      if (el) el.style.display = 'none';
-    });
-    var el = document.getElementById('page-' + id);
-    if (el) {
-      el.style.display = 'block';
-      window.scrollTo(0, 0);
-    }
-  }
-
-  function scrollToWork() {
-    showHome();
-    setTimeout(function() {
-      var el = document.getElementById('work');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }, 80);
-  }
-
-  function scrollToExp() {
-    showHome();
-    setTimeout(function() {
-      var el = document.getElementById('experience');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }, 80);
-  }
-</script>
+<script src="script.js"></script>
 </body>
 </html>
