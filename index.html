@@ -233,27 +233,44 @@
     }
 
     /* Single wide image */
-    .work-img { width: 100%; display: block; border-radius: 4px; margin: 16px 0; background: var(--light); min-height: 200px; }
+    .work-img { max-width: 100%; display: block; border-radius: 4px; margin: 16px 0; background: var(--light); object-fit: contain; }
     /* Side-by-side pair */
     .img-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 16px 0; }
-    .img-pair img { width: 100%; display: block; border-radius: 4px; background: var(--light); min-height: 160px; }
+    .img-pair img { max-width: 100%; display: block; border-radius: 4px; background: var(--light); object-fit: contain; }
     @media (max-width: 500px) { .img-pair { grid-template-columns: 1fr; } }
 
     /* Museum ideation strip — one wide image spanning full width */
     .ideation-strip { width: 100%; display: block; border-radius: 4px; margin: 0 0 32px; background: var(--light); min-height: 220px; }
-    /* 2-column grid for scene notes / design docs */
-    .img-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 0 0 32px; }
-    .img-grid-2 img { width: 100%; display: block; border-radius: 3px; background: var(--light); min-height: 180px; }
-    /* 4-up single row for scene notes */
-    .img-grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 8px; margin: 0 0 32px; }
-    .img-grid-4 img { width: 100%; display: block; border-radius: 3px; background: var(--light); min-height: 160px; object-fit: cover; }
-    @media (max-width: 640px) { .img-grid-4 { grid-template-columns: 1fr 1fr; } }
-    /* 3-column grid for activity photos */
-    .img-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin: 0 0 20px; }
-    .img-grid-3 img { width: 100%; display: block; border-radius: 3px; background: var(--light); min-height: 140px; }
-    @media (max-width: 560px) {
+
+    .work-page-content h2.page-title { font-size: 24px; margin-bottom: 20px; }
+    .work-page-content h2.page-title + p { margin-bottom: 40px; }
+    .work-page-content h3 { font-size: 18px; margin: 18px 0 8px; letter-spacing: -0.01em; }
+    #page-graphic .work-page-content h3 { margin-top: 60px; }
+
+    .img-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 0; }    .img-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin: 0; }
+    .img-grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 8px; margin: 0; }
+
+    .img-grid-2 img,
+    .img-grid-3 img,
+    .img-grid-4 img,
+    .gallery.masonry img { width: 100%; display: block; border-radius: 3px; background: var(--light); min-height: 140px; object-fit: contain; }
+
+    .img-grid-2.mobile-2 { grid-template-columns: 1fr 1fr; }
+    .img-grid-3.mobile-2 { grid-template-columns: 1fr 1fr 1fr; }
+
+    @media (max-width: 640px) {
       .img-grid-2 { grid-template-columns: 1fr; }
-      .img-grid-3 { grid-template-columns: 1fr 1fr; }
+      .img-grid-3 { grid-template-columns: 1fr; }
+      .img-grid-4 { grid-template-columns: 1fr 1fr; }
+      .img-grid-3.mobile-2 { grid-template-columns: 1fr 1fr; }
+      .img-grid-2.mobile-2 { grid-template-columns: 1fr 1fr; }
+      .gallery.masonry { columns: 2; }
+    }
+
+    @media (max-width: 480px) {
+      .img-grid-2.mobile-2 { grid-template-columns: 1fr; }
+      .img-grid-3.mobile-2 { grid-template-columns: 1fr; }
+      .gallery.masonry { columns: 1; }
     }
 
     /* ── FOOTER ─────────────────────────────────── */
@@ -307,7 +324,7 @@
         <div class="hero-contact">
           <a href="mailto:&#107;&#97;&#119;&#97;&#110;&#111;&#46;&#108;&#117;&#110;&#97;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#107;&#97;&#119;&#97;&#110;&#111;&#46;&#108;&#117;&#110;&#97;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a>
           <a href="https://instagram.com/tuna_kawano" target="_blank">@tuna_kawano</a>
-          <a href="https://tunakawano.com" target="_blank">tunakawano.com</a>
+          <a href="https://etsy.com/shop/tunakawano" target="_blank">tunakawano.com</a>
         </div>
       </div>
     </div>
@@ -352,15 +369,15 @@
   <section id="work">
     <div class="section-label">My Work</div>
     <div class="work-grid">
+      <a class="work-item" href="#" onclick="showPage('graphic'); return false;"><span class="work-name">Graphic Design</span><span class="work-arrow">→</span></a>
       <a class="work-item" href="#" onclick="showPage('museum'); return false;"><span class="work-name">Museum Design</span><span class="work-arrow">→</span></a>
       <a class="work-item" href="#" onclick="showPage('marketing'); return false;"><span class="work-name">Marketing</span><span class="work-arrow">→</span></a>
-      <a class="work-item" href="#" onclick="showPage('sound'); return false;"><span class="work-name">Sound Design</span><span class="work-arrow">→</span></a>
       <a class="work-item" href="#" onclick="showPage('web'); return false;"><span class="work-name">Web Design</span><span class="work-arrow">→</span></a>
-      <a class="work-item" href="#" onclick="showPage('graphic'); return false;"><span class="work-name">Graphic Design</span><span class="work-arrow">→</span></a>
       <a class="work-item" href="#" onclick="showPage('video'); return false;"><span class="work-name">Video</span><span class="work-arrow">→</span></a>
-      <a class="work-item" href="#" onclick="showPage('photography'); return false;"><span class="work-name">Photography</span><span class="work-arrow">→</span></a>
       <a class="work-item" href="#" onclick="showPage('art'); return false;"><span class="work-name">Art</span><span class="work-arrow">→</span></a>
-      <a class="work-item" href="https://tunakawano.com" target="_blank"><span class="work-name">My Art Shop ↗</span><span class="work-arrow" style="font-size:11px"></span></a>
+      <a class="work-item" href="#" onclick="showPage('sound'); return false;"><span class="work-name">Sound Design</span><span class="work-arrow">→</span></a>
+      <a class="work-item" href="#" onclick="showPage('photography'); return false;"><span class="work-name">Photography</span><span class="work-arrow">→</span></a>
+      <a class="work-item" href="https://etsy.com/shop/tunakawano" target="_blank"><span class="work-name">My Art Shop ↗</span><span class="work-arrow" style="font-size:11px"></span></a>
     </div>
   </section>
 
@@ -576,7 +593,7 @@
       <a class="ext-link" href="https://www.cbc.ca/news/canada/calgary/banff-reusable-containers-1.6082016" target="_blank">Read CBC Article ↗</a>
       <a class="ext-link" href="https://www.rmoutlook.com/banff/banff-restaurants-municipality-back-reusable-container-pilot-by-local-student-3581337" target="_blank">Read Outlook Article ↗</a>
     </div>
-
+    <div style="height: 30px;"></div>
     <div class="gallery square">
       <img src="images/marketing/marketing-1.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
       <img src="images/marketing/marketing-2.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
@@ -635,46 +652,104 @@
 <div id="page-graphic" class="page-section">
   <div class="view-header"><button class="back-btn" onclick="showHome()">← Back</button><span class="view-title">Work / Graphic Design</span></div>
   <div class="work-page-content">
+
     <h2 class="page-title">Graphic Design</h2>
-    <p>A selection of graphic design work across branding, print, and digital.</p>
-    <!-- Add any number of images to images/graphic/ — the masonry gallery handles any orientation -->
-    <div class="gallery masonry">
-      <img src="images/graphic/01.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/graphic/02.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/graphic/03.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/graphic/04.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/graphic/05.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/graphic/06.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/graphic/07.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/graphic/08.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/graphic/09.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/graphic/10.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/graphic/11.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/graphic/12.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/graphic/13.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/graphic/14.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/graphic/15.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/graphic/16.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/graphic/17.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/graphic/18.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/graphic/19.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/graphic/20.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/graphic/21.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/graphic/22.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/graphic/23.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/graphic/24.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/graphic/25.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/graphic/26.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/graphic/27.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/graphic/28.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/graphic/29.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/graphic/30.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/graphic/31.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/graphic/32.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/graphic/33.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/graphic/34.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
-      <img src="images/graphic/35.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+
+    <h3>Product Design</h3>
+    <p>Products were drawn in Photoshop or on paper and digitized.</p>
+    <div class="img-grid-3">
+      <img loading="lazy" src="images/graphic/product-1.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/product-2.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/product-3.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/product-4.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/product-5.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/product-6.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/product-7.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/product-8.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/product-9.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/product-10.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/product-11.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/product-12.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/product-13.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/product-14.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/product-15.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
     </div>
+
+    <h3>Designing to reflect Dementia & Personhood</h3>
+    <p>A resource to help designers and developers build inclusive products for people living with Alzheimer's and dementia. Designed on Figma and created in direct collaboration with end-users through the Research Institute for Aging.</p>
+    <div class="img-grid-2 mobile-2">
+      <img loading="lazy" src="images/graphic/dementia-1.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/dementia-2.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/dementia-3.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/dementia-4.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+    </div>
+
+    <h3>Bow Valley Doula Slides</h3>
+    <p>A slide deck for a local doula. Consolidated client’s rough ideas into a clear master slide deck. Expanded on design assets while maintaining brand cohesion and clarity.</p>
+    <div class="img-grid-2">
+      <img loading="lazy" src="images/graphic/bvd-1.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/bvd-2.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/bvd-3.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/bvd-4.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+    </div>
+
+    <h3>Banff Isn’t Disposable</h3>
+    <p>A personal capstone project that grew into a community-wide initiative to reduce single-use waste in Banff National Park. Created branding from scratch and developed digital and print assets for social media, signage, presentations, stickers, etc.</p>
+    <div class="img-grid-3">
+      <img loading="lazy" src="images/graphic/bid-1.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/bid-2.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/bid-3.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/bid-4.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/bid-5.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/bid-6.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/bid-7.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/bid-8.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/bid-9.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+    </div>
+    <div style="height: 10px;"></div>
+    <div class="img-grid-2">
+      <img loading="lazy" src="images/graphic/bid-slide-1.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/bid-slide-2.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/bid-slide-3.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/bid-slide-4.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+    </div>
+
+    <h3>YWCA Social Posts</h3>
+    <p>Created social media assets and copy while following corporate brand guidelines.</p>
+    <div class="img-grid-3 mobile-2">
+      <img loading="lazy" src="images/graphic/ywca-1.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/ywca-2.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/ywca-3.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/ywca-4.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/ywca-5.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/ywca-6.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/ywca-7.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/ywca-8.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/ywca-9.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+    </div>
+
+    <h3>Vein to Vein Museum Exhibit</h3>
+    <p>Designing a museum exhibit was our third-year capstone project. The following are assets I co-designed for our exhibit storyboard.</p>
+    <div class="img-grid-2 mobile-2">
+      <img loading="lazy" src="images/graphic/museum-1.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/museum-2.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/museum-3.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/museum-4.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/museum-5.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/museum-6.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+    </div>
+
+    <h3>Other</h3>
+    <p>A book cover and some posters, made for digital and print.</p>
+    <div class="gallery masonry">
+      <img loading="lazy" src="images/graphic/other-1.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/other-2.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/other-3.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/other-4.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/other-5.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+      <img loading="lazy" src="images/graphic/other-6.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
+    </div>
+
   </div>
 </div>
 
@@ -853,6 +928,7 @@
     <p>Convinced 8 local businesses, the Town of Banff, and 20+ community volunteers to participate in a reusable container pilot program. Over 500 containers were diverted from the waste stream and a new single-use bylaw was approved in Banff National Park. Created social media that quickly attracted local and national coverage.</p>
     <a class="ext-link" href="https://www.cbc.ca/news/canada/calgary/banff-reusable-containers-1.6082016" target="_blank">Read CBC Article ↗</a>
     <a class="ext-link" href="https://www.rmoutlook.com/banff/banff-restaurants-municipality-back-reusable-container-pilot-by-local-student-3581337" target="_blank">Read Outlook Article ↗</a>
+    <div style="height: 30px;"></div>
     <div class="gallery square">
       <img src="images/highlights/bid-1.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
       <img src="images/highlights/bid-2.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
@@ -861,6 +937,7 @@
       <img src="images/highlights/bid-5.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
       <img src="images/highlights/bid-6.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
     </div>
+    <div style="height: 30px;"></div>
   </div>
 </div>
 
@@ -877,6 +954,7 @@
       <img src="images/highlights/dementia-4.jpg" alt="" onerror="this.style.background='var(--light)';this.removeAttribute('src')" />
     </div>
     <a class="ext-link" href="https://the-ria.ca/wp-content/uploads/2022/03/Designing-to-Include-Dementia-and-Personhood_print.pdf" target="_blank">Read Resource ↗</a>
+    <div style="height: 30px;"></div>
     <ul>
       <li>Consolidated complex research findings into an accessible, visual format</li>
       <li>Engaged with clients and end-users throughout the design process</li>
@@ -888,9 +966,9 @@
   <footer>
     <span>&copy; Luna Kawano 2026</span>
     <span>
-      <a href="mailto:&#107;&#97;&#119;&#97;&#110;&#111;&#46;&#108;&#117;&#110;&#97;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#107;&#97;&#119;&#97;&#110;&#111;&#46;&#108;&#117;&#110;&#97;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a>
+      <a href="mailto: kawano.luna@gmail.com" target="_blank">kawano.luna@gmail.com</a>
       &nbsp;&middot;&nbsp;
-      <a href="https://tunakawano.com" target="_blank">tunakawano.com</a>
+      <a href="https://etsy.com/shop/tunakawano" target="_blank">tunakawano.com</a>
     </span>
   </footer>
 
